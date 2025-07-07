@@ -1,0 +1,13 @@
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "MOBASHER"."IS_MANAGER" (p_emp_id NUMBER) 
+ RETURN NUMBER IS 
+    l_return NUMBER; 
+BEGIN 
+    SELECT nvl(IS_MANAGER, 0)
+      INTO l_return
+      FROM MOBASHER_EMPLOYEES
+     WHERE ID = p_emp_id;
+
+   RETURN l_return;
+END IS_MANAGER;
+/
