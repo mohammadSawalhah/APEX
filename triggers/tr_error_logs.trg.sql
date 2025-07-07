@@ -1,0 +1,16 @@
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "MOBASHER"."TR_ERROR_LOGS" BEFORE    
+    INSERT OR UPDATE OR DELETE ON ERROR_LOGS    
+    FOR EACH ROW 
+BEGIN    
+    IF inserting THEN    
+        IF :new.ID IS NULL THEN    
+            :new.ID := ERROR_LOGS_SEQ.nextval;    
+        END IF;
+    ENd IF;
+END;
+
+
+
+/
+ALTER TRIGGER "MOBASHER"."TR_ERROR_LOGS" ENABLE;
