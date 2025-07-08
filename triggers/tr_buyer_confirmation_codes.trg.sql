@@ -1,0 +1,18 @@
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "MOBASHER"."TR_BUYER_CONFIRMATION_CODES" BEFORE    
+    INSERT OR UPDATE OR DELETE ON BUYER_CONFIRMATION_CODES    
+    FOR EACH ROW 
+BEGIN    
+    IF inserting THEN    
+        IF :new.ID IS NULL THEN    
+            :new.ID := BUYER_CONFIRMATION_CODES_SEQ.nextval;    
+        END IF;
+        :new.generation_date := SYSDATE;
+        :new.created_date    := SYSDATE;
+        :new.created_by      := nvl(v('APP_USER'), user);
+    ENd IF;
+END;
+
+
+/
+ALTER TRIGGER "MOBASHER"."TR_BUYER_CONFIRMATION_CODES" ENABLE;
