@@ -132,7 +132,7 @@ CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MOBASHER"."APP_USER_SECURITY" AS
         --         );                                                       
     END get_hash;
 
---<AWS_SECRET>=========================================================  
+--=================================================================================================  
 --===================================== END OF FUNCTION ===========================================  
 --=================================================================================================
 
@@ -197,8 +197,8 @@ CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MOBASHER"."APP_USER_SECURITY" AS
           INTO v_dummy   
           FROM app_users   
          WHERE upper(user_name) = upper(p_username)
-           AND PASSWORD = get_hash(p_username, p_password);
-        --    AND NVL(STATUS, 0) = 1; 
+           AND PASSWORD = get_hash(p_username, p_password)
+           AND NVL(is_deleted, 0) = 0; 
     EXCEPTION   
         WHEN no_data_found THEN   
             raise_application_error(-20000, SYSTEM_CONTROLS.get_translation(p_code => 'invalid_user_pass', p_lang => p_lang));    
@@ -733,7 +733,7 @@ CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MOBASHER"."APP_USER_SECURITY" AS
 --=================================================================================================
 
     -- FUNCTION role_name_by_id (
-    --     p_role_id   IN NUMBER
+    --     p_role_id  IN NUMBER
     -- ) RETURN VARCHAR2 IS
     --     v_role_name  VARCHAR2;
     -- BEGIN
@@ -741,7 +741,7 @@ CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MOBASHER"."APP_USER_SECURITY" AS
     --       INTO v_role_name
     --       FROM APP_ROLES
     --      WHERE ID = p_role_id;
-        --  WHERE REPLACE(UPPER(ROLE_NAME), ' ', '_') = REPLACE((UPPER(p_role_name)), ' ', '_');
+    --      WHERE REPLACE(UPPER(ROLE_NAME), ' ', '_') = REPLACE((UPPER(p_role_name)), ' ', '_');
         
     --     RETURN v_role_name;
     -- END role_name_by_id;
