@@ -19,7 +19,7 @@ whenever sqlerror exit sql.sqlcode rollback
 begin
 wwv_flow_imp.import_begin (
  p_version_yyyy_mm_dd=>'2024.11.30'
-,p_release=>'24.2.5'
+,p_release=>'24.2.15'
 ,p_default_workspace_id=>8097545542331186
 ,p_default_application_id=>143
 ,p_default_id_offset=>14177485511307293
@@ -33,15 +33,15 @@ prompt APPLICATION 143 - Individual real-estate in buyer
 -- Application Export:
 --   Application:     143
 --   Name:            Individual real-estate in buyer
---   Exported By:     ADMIN
+--   Exported By:     MOBASHER
 --   Flashback:       0
 --   Export Type:     Application Export
---     Pages:                      8
---       Items:                  109
---       Processes:               25
---       Regions:                 44
---       Buttons:                 21
---       Dynamic Actions:         32
+--     Pages:                      7
+--       Items:                   98
+--       Processes:               19
+--       Regions:                 35
+--       Buttons:                 18
+--       Dynamic Actions:         29
 --     Shared Components:
 --       Logic:
 --         Items:                  9
@@ -73,7 +73,7 @@ prompt APPLICATION 143 - Individual real-estate in buyer
 --       Reports:
 --       E-Mail:
 --     Supporting Objects:  Excluded
---   Version:         24.2.5
+--   Version:         24.2.15
 --   Instance ID:     8097368019106270
 --
 
@@ -95,7 +95,7 @@ wwv_imp_workspace.create_flow(
 ,p_bookmark_checksum_function=>'SH512'
 ,p_compatibility_mode=>'21.2'
 ,p_accessible_read_only=>'N'
-,p_flow_language=>'ar-sa'
+,p_flow_language=>'en-us'
 ,p_flow_language_derived_from=>'FLOW_PRIMARY_LANGUAGE'
 ,p_allow_feedback_yn=>'Y'
 ,p_date_format=>'DS'
@@ -124,6 +124,10 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_02=>'https://objectstorage.me-jeddah-1.oraclecloud.com/n/axax2vam4edg'
 ,p_substitution_string_03=>'G_OCI_WEB_CREDENTIAL'
 ,p_substitution_value_03=>'OCI_AUTH'
+,p_substitution_string_04=>'CREDENTIAL_NAME'
+,p_substitution_value_04=>'OBJ_STORE_CRED'
+,p_substitution_string_05=>'LOCATION_URI'
+,p_substitution_value_05=>'https://objectstorage.me-jeddah-1.oraclecloud.com/n/axxyvf3in2t6/b/demo/o/'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>27
 ,p_print_server_type=>'NATIVE'
@@ -186,7 +190,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(142696363713862598)
 ,p_name=>'Navigation Menu'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41767258084458
+,p_version_scn=>41756856397518
 );
 end;
 /
@@ -196,7 +200,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(142980178802862887)
 ,p_name=>'Navigation Bar'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41767258084520
+,p_version_scn=>41756856397553
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(146859125305469265)
@@ -252,7 +256,7 @@ wwv_flow_imp_shared.create_list(
 ,p_name=>'User Settings'
 ,p_list_status=>'PUBLIC'
 ,p_required_patch=>wwv_flow_imp.id(142994789026862963)
-,p_version_scn=>41767258084611
+,p_version_scn=>41756856397564
 );
 end;
 /
@@ -262,7 +266,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(144822369063986890)
 ,p_name=>'Timed Auctions'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41767258084633
+,p_version_scn=>41756856397581
 );
 end;
 /
@@ -272,7 +276,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(144826516795012765)
 ,p_name=>'Live Auction'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41767258084657
+,p_version_scn=>41756856397590
 );
 end;
 /
@@ -282,7 +286,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(149638403435013076)
 ,p_name=>'Seller Details List'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41767258084701
+,p_version_scn=>41756856397631
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(149638640125013078)
@@ -3044,31 +3048,31 @@ end;
 prompt --application/plugin_settings
 begin
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(1459931235948381)
+ p_id=>wwv_flow_imp.id(1460971278957621)
 ,p_plugin_type=>'WEB SOURCE TYPE'
 ,p_plugin=>'NATIVE_BOSS'
-,p_version_scn=>44672575481940
+,p_version_scn=>44672576399207
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(17118581204177549)
+ p_id=>wwv_flow_imp.id(14177795106307297)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_SELECT_MANY'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'display_values_as', 'separated')).to_clob
-,p_version_scn=>41767258084157
+,p_version_scn=>41756856397317
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(17119198380177549)
+ p_id=>wwv_flow_imp.id(14178381891307298)
 ,p_plugin_type=>'DYNAMIC ACTION'
 ,p_plugin=>'NATIVE_OPEN_AI_ASSISTANT'
-,p_version_scn=>41767258084189
+,p_version_scn=>41756856397346
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(17119468871177549)
+ p_id=>wwv_flow_imp.id(14178653722307298)
 ,p_plugin_type=>'PROCESS TYPE'
 ,p_plugin=>'NATIVE_GEOCODING'
 ,p_attribute_01=>'RELAX_HOUSE_NUMBER'
-,p_version_scn=>41767258084204
+,p_version_scn=>41756856397356
 );
 wwv_flow_imp_shared.create_plugin_setting(
  p_id=>wwv_flow_imp.id(77480762421434473)
@@ -3186,7 +3190,7 @@ wwv_flow_imp_shared.create_security_scheme(
 ,p_scheme_type=>'NATIVE_FUNCTION_BODY'
 ,p_attribute_01=>'return true;'
 ,p_error_message=>'Insufficient privileges, user is not an Administrator'
-,p_version_scn=>41767258090851
+,p_version_scn=>41756856400001
 ,p_caching=>'BY_USER_BY_PAGE_VIEW'
 );
 end;
@@ -3460,7 +3464,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'NAME_AR'
 ,p_default_sort_column_name=>'NAME_AR'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258091372
+,p_version_scn=>41756856400335
 );
 end;
 /
@@ -3480,7 +3484,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091411
+,p_version_scn=>41756856400367
 );
 end;
 /
@@ -3499,7 +3503,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258091428
+,p_version_scn=>41756856400387
 );
 end;
 /
@@ -3515,7 +3519,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'PERSONAL_NAME'
 ,p_default_sort_column_name=>'PERSONAL_NAME'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258091467
+,p_version_scn=>41756856400408
 );
 end;
 /
@@ -3535,7 +3539,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091495
+,p_version_scn=>41756856400421
 );
 end;
 /
@@ -3555,7 +3559,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091527
+,p_version_scn=>41756856400446
 );
 end;
 /
@@ -3578,7 +3582,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258091565
+,p_version_scn=>41756856400461
 );
 end;
 /
@@ -3599,7 +3603,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258091587
+,p_version_scn=>41756856400473
 );
 end;
 /
@@ -3619,7 +3623,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091620
+,p_version_scn=>41756856400495
 );
 end;
 /
@@ -3637,7 +3641,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091643
+,p_version_scn=>41756856400504
 );
 end;
 /
@@ -3658,7 +3662,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_column_name=>'R'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258091676
+,p_version_scn=>41756856400514
 );
 end;
 /
@@ -3678,7 +3682,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091704
+,p_version_scn=>41756856400542
 );
 end;
 /
@@ -3696,7 +3700,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091745
+,p_version_scn=>41756856400558
 );
 end;
 /
@@ -3712,7 +3716,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'NAME_AR'
 ,p_default_sort_column_name=>'NAME_AR'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258091780
+,p_version_scn=>41756856400573
 );
 end;
 /
@@ -3732,7 +3736,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091823
+,p_version_scn=>41756856400597
 );
 end;
 /
@@ -3750,7 +3754,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091849
+,p_version_scn=>41756856400609
 );
 end;
 /
@@ -3768,7 +3772,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091881
+,p_version_scn=>41756856400622
 );
 end;
 /
@@ -3788,7 +3792,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091925
+,p_version_scn=>41756856400635
 );
 end;
 /
@@ -3808,7 +3812,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091956
+,p_version_scn=>41756856400650
 );
 end;
 /
@@ -3828,14 +3832,37 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258091990
+,p_version_scn=>41756856400677
+);
+end;
+/
+prompt --application/shared_components/user_interface/lovs/individual_auction_progress
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(65591289970312073)
+,p_lov_name=>'INDIVIDUAL_AUCTION_PROGRESS'
+,p_lov_query=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT DECODE(NVL(:P_LANG, ''ar''), ''ar'', NAME_AR, NAME_EN) AS D,',
+'       ID AS R',
+'  FROM LOOKUP_DETAIL',
+' WHERE LINKED_LOOKUP_ID = LOOKUPS_MNT.lookup_id_by_code (p_lookup_code => ''individual_auction_progress'')',
+'   AND NVL(IS_ACTIVE, 0) = 1',
+' ORDER BY SEQ;'))
+,p_source_type=>'SQL'
+,p_location=>'LOCAL'
+,p_use_local_sync_table=>false
+,p_return_column_name=>'R'
+,p_display_column_name=>'D'
+,p_group_sort_direction=>'ASC'
+,p_default_sort_direction=>'ASC'
+,p_version_scn=>41756856400694
 );
 end;
 /
 prompt --application/shared_components/user_interface/lovs/individual_request_status
 begin
 wwv_flow_imp_shared.create_list_of_values(
- p_id=>wwv_flow_imp.id(65591289970312073)
+ p_id=>wwv_flow_imp.id(48010124212979083)
 ,p_lov_name=>'INDIVIDUAL_REQUEST_STATUS'
 ,p_lov_query=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT DECODE(NVL(:P_LANG, ''ar''), ''ar'', NAME_AR, NAME_EN) AS D,',
@@ -3851,30 +3878,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767276073734
-);
-end;
-/
-prompt --application/shared_components/user_interface/lovs/individual_request_status_prev
-begin
-wwv_flow_imp_shared.create_list_of_values(
- p_id=>wwv_flow_imp.id(48010124212979083)
-,p_lov_name=>'INDIVIDUAL_REQUEST_STATUS_PREV'
-,p_lov_query=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT DECODE(NVL(:P_LANG, ''ar''), ''ar'', NAME_AR, NAME_EN) AS D,',
-'       ID AS R',
-'  FROM LOOKUP_DETAIL',
-' WHERE LINKED_LOOKUP_ID = LOOKUPS_MNT.lookup_id_by_code (p_lookup_code => ''individual_request_status_prev'')',
-'   AND NVL(IS_ACTIVE, 0) = 1',
-' ORDER BY SEQ;'))
-,p_source_type=>'SQL'
-,p_location=>'LOCAL'
-,p_use_local_sync_table=>false
-,p_return_column_name=>'R'
-,p_display_column_name=>'D'
-,p_group_sort_direction=>'ASC'
-,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767275886730
+,p_version_scn=>41756856400720
 );
 end;
 /
@@ -3893,7 +3897,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092124
+,p_version_scn=>41756856400727
 );
 end;
 /
@@ -3911,7 +3915,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258092146
+,p_version_scn=>41756856400739
 );
 end;
 /
@@ -3931,7 +3935,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092176
+,p_version_scn=>41756856400756
 );
 end;
 /
@@ -3951,7 +3955,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092239
+,p_version_scn=>41756856400766
 );
 end;
 /
@@ -3971,7 +3975,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092279
+,p_version_scn=>41756856400772
 );
 end;
 /
@@ -3991,7 +3995,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092300
+,p_version_scn=>41756856400776
 );
 end;
 /
@@ -4009,7 +4013,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092323
+,p_version_scn=>41756856400788
 );
 end;
 /
@@ -4029,7 +4033,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092362
+,p_version_scn=>41756856400792
 );
 end;
 /
@@ -4052,7 +4056,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258092385
+,p_version_scn=>41756856400794
 );
 end;
 /
@@ -4072,7 +4076,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092404
+,p_version_scn=>41756856400804
 );
 end;
 /
@@ -4090,7 +4094,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092431
+,p_version_scn=>41756856400809
 );
 end;
 /
@@ -4110,7 +4114,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092449
+,p_version_scn=>41756856400813
 );
 end;
 /
@@ -4130,7 +4134,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092477
+,p_version_scn=>41756856400815
 );
 end;
 /
@@ -4150,7 +4154,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092513
+,p_version_scn=>41756856400822
 );
 end;
 /
@@ -4170,7 +4174,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092542
+,p_version_scn=>41756856400835
 );
 end;
 /
@@ -4190,7 +4194,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092571
+,p_version_scn=>41756856400847
 );
 end;
 /
@@ -4210,7 +4214,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092604
+,p_version_scn=>41756856400850
 );
 end;
 /
@@ -4229,7 +4233,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258092651
+,p_version_scn=>41756856400850
 );
 end;
 /
@@ -4247,7 +4251,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092675
+,p_version_scn=>41756856400864
 );
 end;
 /
@@ -4263,7 +4267,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'NAME_AR'
 ,p_default_sort_column_name=>'NAME_AR'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258092731
+,p_version_scn=>41756856400879
 );
 end;
 /
@@ -4283,7 +4287,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092763
+,p_version_scn=>41756856400886
 );
 end;
 /
@@ -4303,7 +4307,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092785
+,p_version_scn=>41756856400892
 );
 end;
 /
@@ -4324,7 +4328,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_column_name=>'R'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258092804
+,p_version_scn=>41756856400903
 );
 end;
 /
@@ -4344,7 +4348,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258092844
+,p_version_scn=>41756856400919
 );
 end;
 /
@@ -4367,7 +4371,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258092881
+,p_version_scn=>41756856400937
 );
 end;
 /
@@ -4389,7 +4393,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258092921
+,p_version_scn=>41756856400942
 );
 end;
 /
@@ -4412,7 +4416,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258092953
+,p_version_scn=>41756856400959
 );
 end;
 /
@@ -4433,7 +4437,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41767258092973
+,p_version_scn=>41756856400986
 );
 end;
 /
@@ -4453,7 +4457,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41767258093028
+,p_version_scn=>41756856401005
 );
 end;
 /
@@ -4464,7 +4468,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_lov_name=>'YES/NO ( NUMBER )'
 ,p_lov_query=>'.'||wwv_flow_imp.id(144625644310751698)||'.'
 ,p_location=>'STATIC'
-,p_version_scn=>41767258093068
+,p_version_scn=>41756856401028
 );
 wwv_flow_imp_shared.create_static_lov_data(
  p_id=>wwv_flow_imp.id(144626064844751698)
@@ -19400,7 +19404,7 @@ wwv_flow_imp_shared.create_authentication(
 ,p_attribute_01=>'nobody'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
-,p_version_scn=>41767258105724
+,p_version_scn=>41756856409979
 );
 end;
 /
@@ -19426,7 +19430,7 @@ wwv_flow_imp_shared.create_authentication(
 ,p_invalid_session_type=>'LOGIN'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
-,p_version_scn=>41767258105871
+,p_version_scn=>41756856410009
 );
 end;
 /
@@ -19952,7 +19956,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_api_version=>1
 ,p_execution_function=>'parse_excel'
 ,p_substitute_attributes=>true
-,p_version_scn=>41767258106896
+,p_version_scn=>41756856410337
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'0.906'
 ,p_plugin_comment=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -23242,7 +23246,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_api_version=>1
 ,p_render_function=>'f_refresh'
 ,p_substitute_attributes=>true
-,p_version_scn=>41767260385536
+,p_version_scn=>41756856412951
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>'Plugin that reload classic or interactive report region after certain time.'
 ,p_version_identifier=>'1.0.0'
@@ -23559,7 +23563,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'ajax_request'
 ,p_validation_function=>'validate_item'
 ,p_substitute_attributes=>true
-,p_version_scn=>41767260385844
+,p_version_scn=>41756856413150
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
 ,p_about_url=>'https://github.com/angooti/Apex-Captcha'
@@ -25619,7 +25623,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'ajax'
 ,p_standard_attributes=>'VISIBLE:SESSION_STATE:READONLY:QUICKPICK:SOURCE:ELEMENT:WIDTH:ELEMENT_OPTION:ENCRYPT:LOV:CASCADING_LOV'
 ,p_substitute_attributes=>true
-,p_version_scn=>41767260393864
+,p_version_scn=>41756856417803
 ,p_subscribe_plugin_settings=>false
 ,p_version_identifier=>'1.5.1'
 ,p_plugin_comment=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -26655,7 +26659,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_render_function=>'render_dropzone'
 ,p_ajax_function=>'ajax_dropzone'
 ,p_substitute_attributes=>true
-,p_version_scn=>41767260394991
+,p_version_scn=>41756856418624
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>unistr('Dropzone is a region type plugin that allows you to provide nice looking drag\2019n\2019drop file uploads. It is based on JS Framework dropzone.js.')
 ,p_version_identifier=>'2.4.1'
@@ -34771,7 +34775,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'ajax'
 ,p_standard_attributes=>'WAIT_FOR_RESULT'
 ,p_substitute_attributes=>true
-,p_version_scn=>41767260413890
+,p_version_scn=>41756856429472
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
 ,p_files_version=>9
@@ -35065,52 +35069,9 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>10
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'-- WITH notifications AS (',
-'--     SELECT REQUEST_ID, count(1) AS notification_count',
-'--       FROM INDIVIDUAL_REALESTATE_CHAT',
-'--      WHERE IS_SEEN = 0',
-'--        AND CREATED_BY NOT IN (SELECT BUYER_NAME FROM INDIVIDUAL_REALESTATE_REQUESTS WHERE ID = REQUEST_ID)',
-'--      GROUP BY request_id',
-'-- )',
-'-- SELECT p.ID,',
-'--        p.SELLER_ID,',
-'--        p.MAIN_IMAGE_URL AS MAIN_IMAGE,',
-'--        p.NAME_AR,',
-'--        i.INSTRUMENT_NUMBER,',
-'--        p.CITY_ID,',
-'--        p.CATEGORY_ID,',
-'--        p.SUB_CATEGORY_ID,',
-'--        i.STATUS,',
-'--        n.notification_count,',
-'--        CASE',
-'--         WHEN nvl(n.notification_count, 0) = 0 THEN',
-'--             ''<span aria-hidden="true" class="fa fa-comment-o"></span>''',
-'--         ELSE',
-'--             ''<span aria-hidden="true" class="fa fa-comment-o fa-anim-flash fam-blank fam-is-danger"></span>'' ||',
-'--             ''<span class="notifications-count">'' || n.notification_count || ''</span>''',
-'--         END AS notifications',
-'--   FROM PRODUCTS p,',
-'--        INDIVIDUAL_REALESTATE_REQUESTS i,',
-'--        notifications n',
-'--  WHERE p.ID = i.PRODUCT_ID',
-'--    AND i.ID = n.REQUEST_ID (+)',
-'-- --    AND i.BUYER_ID = :P1_BUYER_ID',
-'--    AND i.BUYER_ID IN (16073, 20545, 7)',
-'',
-'--    AND i.IS_ACCEPT_TERMS_AND_CONDITIONS = 1',
-'--  ORDER BY id DESC;',
-'',
-'',
-' WITH admin_notifications AS (',
+'WITH notifications AS (',
 '    SELECT REQUEST_ID, count(1) AS notification_count',
 '      FROM INDIVIDUAL_REALESTATE_CHAT',
-'     WHERE IS_SEEN = 0',
-'       AND CREATED_BY NOT IN (SELECT BUYER_NAME FROM INDIVIDUAL_REALESTATE_REQUESTS WHERE ID = REQUEST_ID)',
-'     GROUP BY request_id',
-'), ',
-'    seller_notifications AS (',
-'    SELECT REQUEST_ID, count(1) AS notification_count',
-'      FROM INDIVIDUAL_REALESTATE_SELLER_CHAT',
 '     WHERE IS_SEEN = 0',
 '       AND CREATED_BY NOT IN (SELECT BUYER_NAME FROM INDIVIDUAL_REALESTATE_REQUESTS WHERE ID = REQUEST_ID)',
 '     GROUP BY request_id',
@@ -35124,39 +35085,22 @@ wwv_flow_imp_page.create_page_plug(
 '       p.CATEGORY_ID,',
 '       p.SUB_CATEGORY_ID,',
 '       i.STATUS,',
-'       a.notification_count AS admin_notification_count,',
-'       s.notification_count AS seller_notification_count,',
-'      CASE',
-'       WHEN LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => i.STATUS) IN ( ''submit_request'', ''request_approval'', ''decline_request'' ) THEN',
-'           CASE',
-'            WHEN nvl(a.notification_count, 0) = 0 THEN',
-'                ''<span aria-hidden="true" class="fa fa-comment-o admin"></span>''',
-'            ELSE',
-'                ''<span aria-hidden="true" class="fa fa-comment-o fa-anim-flash fam-blank fam-is-danger admin"></span>'' ||',
-'                ''<span class="notifications-count">'' || a.notification_count || ''</span>''',
-'            END',
-'       WHEN LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => i.STATUS) IN ( ''request_assigned'', ''waiting_publish'', ''publish_request'', ''archived_request'' ) THEN',
-'           CASE',
-'            WHEN nvl(s.notification_count, 0) = 0 THEN',
-'                ''<span aria-hidden="true" class="fa fa-comment-o seller"></span>''',
-'            ELSE',
-'                ''<span aria-hidden="true" class="fa fa-comment-o fa-anim-flash fam-blank fam-is-danger seller"></span>'' ||',
-'                ''<span class="notifications-count">'' || s.notification_count || ''</span>''',
-'            END',
-'       END AS notifications',
+'       n.notification_count,',
+'       CASE',
+'        WHEN nvl(n.notification_count, 0) = 0 THEN',
+'            ''<span aria-hidden="true" class="fa fa-comment-o"></span>''',
+'        ELSE',
+'            ''<span aria-hidden="true" class="fa fa-comment-o fa-anim-flash fam-blank fam-is-danger"></span>'' ||',
+'            ''<span class="notifications-count">'' || n.notification_count || ''</span>''',
+'        END AS notifications',
 '  FROM PRODUCTS p,',
 '       INDIVIDUAL_REALESTATE_REQUESTS i,',
-'       admin_notifications a,',
-'       seller_notifications s',
+'       notifications n',
 ' WHERE p.ID = i.PRODUCT_ID',
-'   AND i.ID = a.REQUEST_ID (+)',
-'   AND i.ID = s.REQUEST_ID (+)',
+'   AND i.ID = n.REQUEST_ID (+)',
 '   AND i.BUYER_ID = :P1_BUYER_ID',
-'--    AND i.BUYER_ID IN (16073, 20545, 7)',
 '   AND i.IS_ACCEPT_TERMS_AND_CONDITIONS = 1',
-'  order by i.id desc',
-'',
-''))
+' ORDER BY id DESC;'))
 ,p_plug_source_type=>'NATIVE_IR'
 ,p_ajax_items_to_submit=>'P1_BUYER_ID'
 ,p_prn_content_disposition=>'ATTACHMENT'
@@ -35317,8 +35261,18 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_type=>'NUMBER'
 ,p_display_text_as=>'LOV_ESCAPE_SC'
 ,p_column_alignment=>'CENTER'
-,p_rpt_named_lov=>wwv_flow_imp.id(65591289970312073)
+,p_rpt_named_lov=>wwv_flow_imp.id(48010124212979083)
 ,p_rpt_show_filter_lov=>'1'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(14538208633002563)
+,p_db_column_name=>'NOTIFICATION_COUNT'
+,p_display_order=>120
+,p_column_identifier=>'L'
+,p_column_label=>'Notification Count'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'HIDDEN_ESCAPE_SC'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -35333,26 +35287,6 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_format_mask=>'PCT_GRAPH:::'
 ,p_use_as_row_header=>'N'
 );
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14883941371009835)
-,p_db_column_name=>'ADMIN_NOTIFICATION_COUNT'
-,p_display_order=>140
-,p_column_identifier=>'N'
-,p_column_label=>'Admin Notification Count'
-,p_column_type=>'NUMBER'
-,p_display_text_as=>'HIDDEN_ESCAPE_SC'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14884033175009836)
-,p_db_column_name=>'SELLER_NOTIFICATION_COUNT'
-,p_display_order=>150
-,p_column_identifier=>'O'
-,p_column_label=>'Seller Notification Count'
-,p_column_type=>'NUMBER'
-,p_display_text_as=>'HIDDEN_ESCAPE_SC'
-,p_use_as_row_header=>'N'
-);
 wwv_flow_imp_page.create_worksheet_rpt(
  p_id=>wwv_flow_imp.id(75903587343604208)
 ,p_application_user=>'APXWS_DEFAULT'
@@ -35361,7 +35295,7 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_view_mode=>'REPORT'
-,p_report_columns=>'MAIN_IMAGE:NAME_AR:NOTIFICATIONS:CITY_ID:CATEGORY_ID:SUB_CATEGORY_ID:INSTRUMENT_NUMBER:STATUS'
+,p_report_columns=>'MAIN_IMAGE:NAME_AR:NOTIFICATIONS:CITY_ID:CATEGORY_ID:SUB_CATEGORY_ID:INSTRUMENT_NUMBER:STATUS:'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(45336783978562494)
@@ -35436,7 +35370,7 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_triggering_element=>'P1_BUYER_ID'
 ,p_condition_element=>'P1_BUYER_ID'
 ,p_triggering_condition_type=>'NOT_NULL'
-,p_bind_type=>'live'
+,p_bind_type=>'bind'
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'change'
 );
@@ -35666,158 +35600,6 @@ wwv_flow_imp_page.create_page_plug(
   'output_as', 'HTML')).to_clob
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(14532658962106636)
-,p_plug_name=>unistr('\0645\0627 \0628\0639\062F \0627\0644\0625\0633\0646\0627\062F \0644\0648\0643\064A\0644 \0628\064A\0639')
-,p_parent_plug_id=>wwv_flow_imp.id(75883318400575641)
-,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(142799159174862689)
-,p_plug_display_sequence=>250
-,p_plug_display_condition_type=>'EXISTS'
-,p_plug_display_when_condition=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT 1',
-'  FROM INDIVIDUAL_REALESTATE_REQUESTS',
-' WHERE ID = :P2_REQUEST_ID',
-'   AND LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => STATUS) = ''request_assigned''',
-'   AND LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => AFTER_ASSIGN_STATUS) = ''waiting_marketing_contract'''))
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(14532515430106635)
-,p_plug_name=>'Marketing contracts'
-,p_parent_plug_id=>wwv_flow_imp.id(14532658962106636)
-,p_region_template_options=>'#DEFAULT#'
-,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(142771511967862674)
-,p_plug_display_sequence=>20
-,p_query_type=>'SQL'
-,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT REQUEST_ID,',
-'       MARKETING_CONTRACT_URL,',
-'       ASSIGNED_MARKETING_CONTRACT_URL,',
-'        CASE',
-'            WHEN MARKETING_CONTRACT_URL IS NOT NULL THEN',
-'                ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
-'            ELSE ''''',
-'        END AS MARKETING_CONTRACT_URL_CLASS,',
-'        CASE',
-'            WHEN ASSIGNED_MARKETING_CONTRACT_URL IS NOT NULL THEN',
-'                ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
-'            ELSE ''''',
-'        END AS ASSIGNED_MARKETING_CONTRACT_URL_CLASS',
-'  FROM INDIVIDUAL_REALESTATE_AFTER_ASSIGNED',
-' WHERE REQUEST_ID = :P2_REQUEST_ID'))
-,p_plug_source_type=>'NATIVE_IR'
-,p_ajax_items_to_submit=>'P2_REQUEST_ID'
-,p_prn_content_disposition=>'ATTACHMENT'
-,p_prn_units=>'INCHES'
-,p_prn_paper_size=>'LETTER'
-,p_prn_width=>11
-,p_prn_height=>8.5
-,p_prn_orientation=>'HORIZONTAL'
-,p_prn_page_header=>'Marketing contracts'
-,p_prn_page_header_font_color=>'#000000'
-,p_prn_page_header_font_family=>'Helvetica'
-,p_prn_page_header_font_weight=>'normal'
-,p_prn_page_header_font_size=>'12'
-,p_prn_page_footer_font_color=>'#000000'
-,p_prn_page_footer_font_family=>'Helvetica'
-,p_prn_page_footer_font_weight=>'normal'
-,p_prn_page_footer_font_size=>'12'
-,p_prn_header_bg_color=>'#EEEEEE'
-,p_prn_header_font_color=>'#000000'
-,p_prn_header_font_family=>'Helvetica'
-,p_prn_header_font_weight=>'bold'
-,p_prn_header_font_size=>'10'
-,p_prn_body_bg_color=>'#FFFFFF'
-,p_prn_body_font_color=>'#000000'
-,p_prn_body_font_family=>'Helvetica'
-,p_prn_body_font_weight=>'normal'
-,p_prn_body_font_size=>'10'
-,p_prn_border_width=>.5
-,p_prn_page_header_alignment=>'CENTER'
-,p_prn_page_footer_alignment=>'CENTER'
-,p_prn_border_color=>'#666666'
-);
-wwv_flow_imp_page.create_worksheet(
- p_id=>wwv_flow_imp.id(14532436786106634)
-,p_max_row_count=>'1000000'
-,p_pagination_type=>'ROWS_X_TO_Y'
-,p_pagination_display_pos=>'BOTTOM_RIGHT'
-,p_show_search_bar=>'N'
-,p_report_list_mode=>'TABS'
-,p_lazy_loading=>false
-,p_show_detail_link=>'N'
-,p_enable_mail_download=>'Y'
-,p_owner=>'MERAL_AL'
-,p_internal_uid=>50640141656751823
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14532290567106633)
-,p_db_column_name=>'REQUEST_ID'
-,p_display_order=>10
-,p_column_identifier=>'A'
-,p_column_label=>'Request Id'
-,p_column_type=>'NUMBER'
-,p_display_text_as=>'HIDDEN_ESCAPE_SC'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14532264313106632)
-,p_db_column_name=>'MARKETING_CONTRACT_URL'
-,p_display_order=>20
-,p_column_identifier=>'B'
-,p_column_label=>unistr('\0639\0642\062F \0627\0644\062A\0633\0648\064A\0642 \0645\0646 \0642\0628\0644 \0648\0643\064A\0644 \0627\0644\0628\064A\0639')
-,p_column_link=>'#MARKETING_CONTRACT_URL#'
-,p_column_linktext=>'#MARKETING_CONTRACT_URL_CLASS#'
-,p_column_type=>'STRING'
-,p_column_alignment=>'CENTER'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14532156056106631)
-,p_db_column_name=>'ASSIGNED_MARKETING_CONTRACT_URL'
-,p_display_order=>30
-,p_column_identifier=>'C'
-,p_column_label=>unistr('\0639\0642\062F \0627\0644\062A\0633\0648\064A\0642 \0645\0646 \0642\0628\0644 \0645\0645\062B\0644 \0627\0644\0639\0642\0627\0631 (\0628\0639\062F \0627\0644\062A\0648\0642\064A\0639)')
-,p_column_link=>'#ASSIGNED_MARKETING_CONTRACT_URL#'
-,p_column_linktext=>'#ASSIGNED_MARKETING_CONTRACT_URL_CLASS#'
-,p_column_type=>'STRING'
-,p_column_alignment=>'CENTER'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14532033945106630)
-,p_db_column_name=>'MARKETING_CONTRACT_URL_CLASS'
-,p_display_order=>40
-,p_column_identifier=>'D'
-,p_column_label=>'Marketing Contract Url Class'
-,p_column_type=>'STRING'
-,p_display_text_as=>'HIDDEN'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14531951681106629)
-,p_db_column_name=>'ASSIGNED_MARKETING_CONTRACT_URL_CLASS'
-,p_display_order=>50
-,p_column_identifier=>'E'
-,p_column_label=>'Assigned Marketing Contract Url Class'
-,p_column_type=>'STRING'
-,p_display_text_as=>'HIDDEN'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_rpt(
- p_id=>wwv_flow_imp.id(14612772302995927)
-,p_application_user=>'APXWS_DEFAULT'
-,p_report_seq=>10
-,p_report_alias=>'514304'
-,p_status=>'PUBLIC'
-,p_is_default=>'Y'
-,p_view_mode=>'REPORT'
-,p_report_columns=>'REQUEST_ID:MARKETING_CONTRACT_URL:ASSIGNED_MARKETING_CONTRACT_URL:MARKETING_CONTRACT_URL_CLASS:ASSIGNED_MARKETING_CONTRACT_URL_CLASS'
-);
-wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(51580275668258411)
 ,p_plug_name=>unistr('\0645\0631\0641\0642\0627\062A \0625\0636\0627\0641\064A\0629')
 ,p_parent_plug_id=>wwv_flow_imp.id(75883318400575641)
@@ -35849,8 +35631,10 @@ wwv_flow_imp_page.create_page_plug(
 '            ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
 '        ELSE ''''',
 '       END AS ATTACHMENT_CLASS',
-'  FROM INDIVIDUAL_REALESTATE_ATTACHMENTS',
+'  FROM INDIVIDUAL_REQUEST_ATTACHMENTS',
 ' WHERE REQUEST_ID = :P2_REQUEST_ID',
+'   AND CATEGORY = ''REALESTATE''',
+'   AND IS_DELETED = 0',
 ' ORDER BY CREATED_DATE DESC'))
 ,p_plug_source_type=>'NATIVE_IR'
 ,p_ajax_items_to_submit=>'P2_REQUEST_ID'
@@ -35890,7 +35674,6 @@ wwv_flow_imp_page.create_worksheet(
 ,p_pagination_type=>'ROWS_X_TO_Y'
 ,p_pagination_display_pos=>'BOTTOM_RIGHT'
 ,p_show_search_bar=>'N'
-,p_report_list_mode=>'TABS'
 ,p_lazy_loading=>false
 ,p_show_detail_link=>'N'
 ,p_enable_mail_download=>'Y'
@@ -35980,56 +35763,52 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>60
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT INSTRUMENT_URL,',
-'         CASE',
-'       WHEN INSTRUMENT_URL IS NOT NULL THEN',
-'           ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
-'       ELSE ''''',
-'       END AS INSTRUMENT_CLASS,',
-'      PROPERTY_RATED_URL,',
-'         CASE',
-'       WHEN PROPERTY_RATED_URL IS NOT NULL THEN',
-'           ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
-'       ELSE ''''',
-'       END AS PROPERTY_RATED_CLASS,',
-'      SELL_AUTHORIZATION_URL,',
-'         CASE',
-'       WHEN SELL_AUTHORIZATION_URL IS NOT NULL THEN',
-'           ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
-'       ELSE ''''',
-'       END AS SELL_AUTHORIZATION_CLASS,',
-'      VAL_LICENSE_URL,',
-'         CASE',
-'       WHEN VAL_LICENSE_URL IS NOT NULL THEN',
-'           ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
-'       ELSE ''''',
-'       END AS VAL_LICENSE_URL_CLASS,',
-'       MEDIATION_CONTRACT_URL,',
-'         CASE',
-'       WHEN MEDIATION_CONTRACT_URL IS NOT NULL THEN',
-'           ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
-'       ELSE ''''',
-'       END AS MEDIATION_CONTRACT_URL_CLASS,',
-'       AUTHORIZATION_URL,',
-'         CASE',
-'       WHEN AUTHORIZATION_URL IS NOT NULL THEN',
-'           ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
-'       ELSE ''''',
-'       END AS AUTHORIZATION_URL_CLASS,',
-'        CADASTRAL_URL,',
+'-- SELECT AUTHORIZATION_URL,',
+'--        VAL_LICENSE_URL,',
+'--        MEDIATION_CONTRACT_URL,',
+'--        PROPERTY_RATED_URL,',
+'--        SELL_AUTHORIZATION_URL,',
+'--        INSTRUMENT_URL',
+'--   FROM INDIVIDUAL_REALESTATE_REQUESTS',
+'--  WHERE PRODUCT_ID = :P2_ID',
+' SELECT INSTRUMENT_URL,',
 '          CASE',
-'        WHEN CADASTRAL_URL IS NOT NULL THEN',
+'        WHEN INSTRUMENT_URL IS NOT NULL THEN',
 '            ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
 '        ELSE ''''',
-'        END AS CADASTRAL_URL_CLASS,',
-'        CONSTRUCTION_LICENSE_URL,',
+'        END AS INSTRUMENT_CLASS,',
+'       PROPERTY_RATED_URL,',
 '          CASE',
-'        WHEN CONSTRUCTION_LICENSE_URL IS NOT NULL THEN',
+'        WHEN PROPERTY_RATED_URL IS NOT NULL THEN',
 '            ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
 '        ELSE ''''',
-'        END AS CONSTRUCTION_LICENSE_URL_CLASS',
-'FROM  INDIVIDUAL_REALESTATE_REQUESTS',
-'WHERE PRODUCT_ID = :P2_ID'))
+'        END AS PROPERTY_RATED_CLASS,',
+'       SELL_AUTHORIZATION_URL,',
+'          CASE',
+'        WHEN SELL_AUTHORIZATION_URL IS NOT NULL THEN',
+'            ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
+'        ELSE ''''',
+'        END AS SELL_AUTHORIZATION_CLASS,',
+'       VAL_LICENSE_URL,',
+'          CASE',
+'        WHEN VAL_LICENSE_URL IS NOT NULL THEN',
+'            ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
+'        ELSE ''''',
+'        END AS VAL_LICENSE_URL_CLASS,',
+'        MEDIATION_CONTRACT_URL,',
+'          CASE',
+'        WHEN MEDIATION_CONTRACT_URL IS NOT NULL THEN',
+'            ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
+'        ELSE ''''',
+'        END AS MEDIATION_CONTRACT_URL_CLASS,',
+'        AUTHORIZATION_URL,',
+'          CASE',
+'        WHEN AUTHORIZATION_URL IS NOT NULL THEN',
+'            ''<span class="fa fa-file-o" aria-hidden="true"></span>''',
+'        ELSE ''''',
+'        END AS AUTHORIZATION_URL_CLASS',
+' FROM  INDIVIDUAL_REALESTATE_REQUESTS',
+' WHERE PRODUCT_ID = :P2_ID'))
 ,p_plug_source_type=>'NATIVE_IR'
 ,p_ajax_items_to_submit=>'P2_ID'
 ,p_prn_content_disposition=>'ATTACHMENT'
@@ -36189,35 +35968,9 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14886982144009865)
-,p_db_column_name=>'CADASTRAL_URL'
-,p_display_order=>70
-,p_column_identifier=>'M'
-,p_column_label=>unistr('\0627\0644\0631\0641\0639 \0627\0644\0645\0633\0627\062D\064A/ \0645\062D\0636\0631 \0641\0631\0632')
-,p_column_link=>'#CADASTRAL_URL#'
-,p_column_linktext=>'#CADASTRAL_URL_CLASS#'
-,p_column_link_attr=>'target="_blank"'
-,p_column_type=>'STRING'
-,p_column_alignment=>'CENTER'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14887122726009867)
-,p_db_column_name=>'CONSTRUCTION_LICENSE_URL'
-,p_display_order=>80
-,p_column_identifier=>'O'
-,p_column_label=>unistr('\0631\062E\0635\0629 \0628\0646\0627\0621')
-,p_column_link=>'#CONSTRUCTION_LICENSE_URL#'
-,p_column_linktext=>'#CONSTRUCTION_LICENSE_URL_CLASS#'
-,p_column_link_attr=>'target="_blank"'
-,p_column_type=>'STRING'
-,p_column_alignment=>'CENTER'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(74917239746112634)
 ,p_db_column_name=>'INSTRUMENT_CLASS'
-,p_display_order=>90
+,p_display_order=>70
 ,p_column_identifier=>'G'
 ,p_column_label=>'Instrument Class'
 ,p_column_type=>'STRING'
@@ -36227,7 +35980,7 @@ wwv_flow_imp_page.create_worksheet_column(
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(74917380263112635)
 ,p_db_column_name=>'PROPERTY_RATED_CLASS'
-,p_display_order=>100
+,p_display_order=>80
 ,p_column_identifier=>'H'
 ,p_column_label=>'Property Rated Class'
 ,p_column_type=>'STRING'
@@ -36239,7 +35992,7 @@ wwv_flow_imp_page.create_worksheet_column(
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(74917412219112636)
 ,p_db_column_name=>'SELL_AUTHORIZATION_CLASS'
-,p_display_order=>110
+,p_display_order=>90
 ,p_column_identifier=>'I'
 ,p_column_label=>'Sell Authorization Class'
 ,p_column_type=>'STRING'
@@ -36251,7 +36004,7 @@ wwv_flow_imp_page.create_worksheet_column(
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(74917514504112637)
 ,p_db_column_name=>'VAL_LICENSE_URL_CLASS'
-,p_display_order=>120
+,p_display_order=>100
 ,p_column_identifier=>'J'
 ,p_column_label=>'Val License Url Class'
 ,p_column_type=>'STRING'
@@ -36263,7 +36016,7 @@ wwv_flow_imp_page.create_worksheet_column(
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(74917590011112638)
 ,p_db_column_name=>'MEDIATION_CONTRACT_URL_CLASS'
-,p_display_order=>130
+,p_display_order=>110
 ,p_column_identifier=>'K'
 ,p_column_label=>'Mediation Contract Url Class'
 ,p_column_type=>'STRING'
@@ -36275,33 +36028,13 @@ wwv_flow_imp_page.create_worksheet_column(
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(74917767578112639)
 ,p_db_column_name=>'AUTHORIZATION_URL_CLASS'
-,p_display_order=>140
+,p_display_order=>120
 ,p_column_identifier=>'L'
 ,p_column_label=>'Authorization Url Class'
 ,p_column_type=>'STRING'
 ,p_display_text_as=>'HIDDEN'
 ,p_display_condition_type=>'ITEM_IS_NOT_ZERO'
 ,p_display_condition=>'P2_IS_AUTHORIZED'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14887074312009866)
-,p_db_column_name=>'CADASTRAL_URL_CLASS'
-,p_display_order=>160
-,p_column_identifier=>'N'
-,p_column_label=>'Cadastral Url Class'
-,p_column_type=>'STRING'
-,p_display_text_as=>'HIDDEN'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(14887231704009868)
-,p_db_column_name=>'CONSTRUCTION_LICENSE_URL_CLASS'
-,p_display_order=>170
-,p_column_identifier=>'P'
-,p_column_label=>'Construction License Url Class'
-,p_column_type=>'STRING'
-,p_display_text_as=>'HIDDEN'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_rpt(
@@ -36445,7 +36178,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(76249862433347193)
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_imp.id(142771511967862674)
-,p_plug_display_sequence=>30
+,p_plug_display_sequence=>20
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT ID,',
@@ -36641,31 +36374,6 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_report_columns=>'IMAGE:'
-);
-wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(14531789630106628)
-,p_button_sequence=>10
-,p_button_plug_id=>wwv_flow_imp.id(14532515430106635)
-,p_button_name=>'Upload_contract'
-,p_button_action=>'REDIRECT_PAGE'
-,p_button_template_options=>'#DEFAULT#:t-Button--iconLeft:t-Button--padRight'
-,p_button_template_id=>wwv_flow_imp.id(142872435943862743)
-,p_button_is_hot=>'Y'
-,p_button_image_alt=>unistr('\0631\0641\0639 \0627\0644\0639\0642\062F \0627\0644\0645\0648\0642\0639')
-,p_button_position=>'ABOVE_BOX'
-,p_button_alignment=>'RIGHT'
-,p_button_redirect_url=>'f?p=&APP_ID.:5:&SESSION.::&DEBUG.::P5_REQUEST_ID,P5_PRODUCT_ID:&P2_REQUEST_ID.,&P2_ID.'
-,p_button_condition=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT 1 ',
-'  FROM INDIVIDUAL_REALESTATE_AFTER_ASSIGNED ra,',
-'       INDIVIDUAL_REALESTATE_REQUESTS i',
-' WHERE i.ID = ra.REQUEST_ID ',
-'   AND REQUEST_ID = :P2_REQUEST_ID',
-'   AND ra.MARKETING_CONTRACT_URL IS NOT NULL',
-'   AND LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => i.STATUS) = ''request_assigned''',
-'   AND LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => i.AFTER_ASSIGN_STATUS) = ''waiting_marketing_contract'''))
-,p_button_condition_type=>'EXISTS'
-,p_icon_css_classes=>'fa-plus-circle'
 );
 wwv_flow_imp_page.create_page_button(
  p_id=>wwv_flow_imp.id(45447468659232891)
@@ -36899,12 +36607,12 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_image_alt=>'Chat'
 ,p_button_position=>'PREVIOUS'
 ,p_button_alignment=>'RIGHT'
-,p_button_redirect_url=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.::P3_ID,P3_BUYER_NAME,P3_PRODUCT_ID:&P2_REQUEST_ID.,&P2_BUYER_NAME.,&P2_ID.'
+,p_button_redirect_url=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.::P3_ID,P3_BUYER_NAME:&P2_REQUEST_ID.,&P2_BUYER_NAME.'
 ,p_button_condition=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'SELECT 1',
 '  FROM INDIVIDUAL_REALESTATE_REQUESTS',
 ' WHERE PRODUCT_ID = :P2_ID',
-'  AND  LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => STATUS) IN (''submit_request'', ''request_approval'', ''request_assigned'' )'))
+'  AND  LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => STATUS) IN (''request_submitted'', ''request_approved'' )'))
 ,p_button_condition_type=>'EXISTS'
 ,p_icon_css_classes=>'fa fa-headset'
 );
@@ -38781,38 +38489,6 @@ wwv_flow_imp_page.create_page_da_action(
 '    return true;',
 '});'))
 );
-wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(14530340975106613)
-,p_name=>'REFRESH CONTRACT'
-,p_event_sequence=>160
-,p_triggering_element_type=>'REGION'
-,p_triggering_region_id=>wwv_flow_imp.id(14532515430106635)
-,p_bind_type=>'live'
-,p_execution_type=>'IMMEDIATE'
-,p_bind_event_type=>'apexafterclosedialog'
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(14530256759106612)
-,p_event_id=>wwv_flow_imp.id(14530340975106613)
-,p_event_result=>'TRUE'
-,p_action_sequence=>10
-,p_execute_on_page_init=>'N'
-,p_action=>'NATIVE_REFRESH'
-,p_affected_elements_type=>'REGION'
-,p_affected_region_id=>wwv_flow_imp.id(14532515430106635)
-,p_attribute_01=>'N'
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(15993669489625160)
-,p_event_id=>wwv_flow_imp.id(14530340975106613)
-,p_event_result=>'TRUE'
-,p_action_sequence=>20
-,p_execute_on_page_init=>'N'
-,p_action=>'NATIVE_REFRESH'
-,p_affected_elements_type=>'REGION'
-,p_affected_region_id=>wwv_flow_imp.id(74916420011112626)
-,p_attribute_01=>'N'
-);
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(76138401087653698)
 ,p_process_sequence=>10
@@ -38957,41 +38633,12 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'03'
 );
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(14884103353009837)
-,p_plug_name=>'Container'
-,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--removeHeader js-removeLandmark:t-Region--noBorder:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(142799159174862689)
-,p_plug_display_sequence=>60
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(14884281001009838)
-,p_plug_name=>'Admin chat'
-,p_parent_plug_id=>wwv_flow_imp.id(14884103353009837)
-,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--removeHeader js-removeLandmark:t-Region--noBorder:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(142799159174862689)
-,p_plug_display_sequence=>10
-,p_plug_display_point=>'SUB_REGIONS'
-,p_plug_display_condition_type=>'EXISTS'
-,p_plug_display_when_condition=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT 1',
-'FROM INDIVIDUAL_REALESTATE_REQUESTS',
-'WHERE ID = :P3_ID',
-'  AND LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => STATUS) IN (''submit_request'', ''request_approval'')'))
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
 wwv_flow_imp_page.create_report_region(
  p_id=>wwv_flow_imp.id(260432437584199252)
 ,p_name=>unistr('\0627\0644\0645\062D\0627\062F\062B\0629')
-,p_region_name=>'adminChat'
-,p_parent_plug_id=>wwv_flow_imp.id(14884281001009838)
+,p_region_name=>'comments'
 ,p_template=>wwv_flow_imp.id(142773627633862675)
-,p_display_sequence=>40
+,p_display_sequence=>30
 ,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--hideShowIconsMath:is-expanded:i-h480:t-Region--noBorder:t-Region--scrollBody'
 ,p_component_template_options=>'#DEFAULT#:t-Comments--chat:t-Comments--iconsRounded'
 ,p_source_type=>'NATIVE_SQL_REPORT'
@@ -39142,258 +38789,26 @@ wwv_flow_imp_page.create_page_plug(
   'expand_shortcuts', 'N',
   'output_as', 'HTML')).to_clob
 );
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(14884296523009839)
-,p_plug_name=>'Seller chat'
-,p_parent_plug_id=>wwv_flow_imp.id(14884103353009837)
-,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--removeHeader js-removeLandmark:t-Region--noBorder:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(142799159174862689)
-,p_plug_display_sequence=>20
-,p_plug_display_point=>'SUB_REGIONS'
-,p_plug_display_condition_type=>'EXISTS'
-,p_plug_display_when_condition=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT 1',
-'FROM INDIVIDUAL_REALESTATE_REQUESTS',
-'WHERE ID = :P3_ID',
-'  AND  LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => STATUS) IN (''request_assigned'')'))
-,p_plug_header=>unistr('<span style="font-weight:bold;color:#026E63;font-size:12px">  * \064A\062A\0645 \0627\0644\0627\0646 \0627\0644\062A\062D\062F\062B \0645\0639 &P3_SELLER_NAME.  </span>')
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_report_region(
- p_id=>wwv_flow_imp.id(14884426348009840)
-,p_name=>unistr('\0627\0644\0645\062D\0627\062F\062B\0629')
-,p_region_name=>'sellerChat'
-,p_parent_plug_id=>wwv_flow_imp.id(14884296523009839)
-,p_template=>wwv_flow_imp.id(142773627633862675)
-,p_display_sequence=>50
-,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--hideShowIconsMath:is-expanded:i-h480:t-Region--noBorder:t-Region--scrollBody'
-,p_component_template_options=>'#DEFAULT#:t-Comments--chat:t-Comments--iconsRounded'
-,p_source_type=>'NATIVE_SQL_REPORT'
-,p_query_type=>'SQL'
-,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT c.ID,',
-'       c.REQUEST_ID,',
-'       c.MESSAGE AS COMMENT_TEXT ,',
-'       DECODE(c.CREATED_BY, :P3_BUYER_NAME , ''self'', ''other'') AS COMMENT_TEXT_CLASS,',
-'       c.CREATED_BY AS USER_NAME,',
-'       TO_CHAR(c.CREATED_DATE + 1/24 , ''MM/DD/YYYY HH24:MI:SS'') AS COMMENT_DATE,',
-'       NULL AS USER_ICON,',
-'       NULL AS ATTRIBUTE_1,',
-'       NULL AS ATTRIBUTE_2,',
-'       NULL AS ATTRIBUTE_3,',
-'       NULL AS ATTRIBUTE_4,',
-'       NULL AS ACTIONS',
-'  FROM INDIVIDUAL_REALESTATE_SELLER_CHAT c',
-' WHERE REQUEST_ID = :P3_ID',
-'ORDER BY 1 ASC'))
-,p_ajax_enabled=>'Y'
-,p_ajax_items_to_submit=>'P3_ID'
-,p_lazy_loading=>true
-,p_query_row_template=>wwv_flow_imp.id(142832829312862710)
-,p_query_num_rows=>9999999
-,p_query_options=>'DERIVED_REPORT_COLUMNS'
-,p_csv_output=>'N'
-,p_prn_output=>'N'
-,p_sort_null=>'L'
-,p_plug_query_strip_html=>'N'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14884502332009841)
-,p_query_column_id=>1
-,p_column_alias=>'ID'
-,p_column_display_sequence=>10
-,p_hidden_column=>'Y'
-,p_derived_column=>'N'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14884641853009842)
-,p_query_column_id=>2
-,p_column_alias=>'REQUEST_ID'
-,p_column_display_sequence=>20
-,p_hidden_column=>'Y'
-,p_derived_column=>'N'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14884739338009843)
-,p_query_column_id=>3
-,p_column_alias=>'COMMENT_TEXT'
-,p_column_display_sequence=>30
-,p_column_heading=>'Comment Text'
-,p_column_format=>'PCT_GRAPH:::'
-,p_column_css_class=>'#COMMENT_TEXT_CLASS#'
-,p_heading_alignment=>'LEFT'
-,p_display_as=>'WITHOUT_MODIFICATION'
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14885683831009852)
-,p_query_column_id=>4
-,p_column_alias=>'COMMENT_TEXT_CLASS'
-,p_column_display_sequence=>120
-,p_column_heading=>'Comment Text Class'
-,p_heading_alignment=>'LEFT'
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14884805529009844)
-,p_query_column_id=>5
-,p_column_alias=>'USER_NAME'
-,p_column_display_sequence=>40
-,p_column_heading=>'User Name'
-,p_heading_alignment=>'LEFT'
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14884971749009845)
-,p_query_column_id=>6
-,p_column_alias=>'COMMENT_DATE'
-,p_column_display_sequence=>50
-,p_column_heading=>'Comment Date'
-,p_heading_alignment=>'LEFT'
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14885058029009846)
-,p_query_column_id=>7
-,p_column_alias=>'USER_ICON'
-,p_column_display_sequence=>60
-,p_hidden_column=>'Y'
-,p_derived_column=>'N'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14885093600009847)
-,p_query_column_id=>8
-,p_column_alias=>'ATTRIBUTE_1'
-,p_column_display_sequence=>70
-,p_hidden_column=>'Y'
-,p_derived_column=>'N'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14885198896009848)
-,p_query_column_id=>9
-,p_column_alias=>'ATTRIBUTE_2'
-,p_column_display_sequence=>80
-,p_hidden_column=>'Y'
-,p_derived_column=>'N'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14885302170009849)
-,p_query_column_id=>10
-,p_column_alias=>'ATTRIBUTE_3'
-,p_column_display_sequence=>90
-,p_hidden_column=>'Y'
-,p_derived_column=>'N'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14885402316009850)
-,p_query_column_id=>11
-,p_column_alias=>'ATTRIBUTE_4'
-,p_column_display_sequence=>100
-,p_hidden_column=>'Y'
-,p_derived_column=>'N'
-);
-wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(14885577454009851)
-,p_query_column_id=>12
-,p_column_alias=>'ACTIONS'
-,p_column_display_sequence=>110
-,p_hidden_column=>'Y'
-,p_derived_column=>'N'
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(14885715660009853)
-,p_plug_name=>'Items'
-,p_parent_plug_id=>wwv_flow_imp.id(14884426348009840)
-,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader js-removeLandmark:t-Region--textContent:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(142799159174862689)
-,p_plug_display_sequence=>30
-,p_plug_display_point=>'SUB_REGIONS'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
 wwv_flow_imp_page.create_page_button(
  p_id=>wwv_flow_imp.id(77362805083871539)
 ,p_button_sequence=>10
 ,p_button_plug_id=>wwv_flow_imp.id(263148281579420527)
-,p_button_name=>'send_admin'
+,p_button_name=>'Send'
 ,p_button_action=>'DEFINED_BY_DA'
 ,p_button_template_options=>'#DEFAULT#:t-Button--gapTop'
 ,p_button_template_id=>wwv_flow_imp.id(142871669852862741)
 ,p_button_is_hot=>'Y'
-,p_button_image_alt=>'Send Admin'
+,p_button_image_alt=>'Send'
 ,p_button_alignment=>'RIGHT'
 ,p_warn_on_unsaved_changes=>null
 ,p_icon_css_classes=>'fa-send-o'
 ,p_grid_new_row=>'Y'
 ,p_grid_column_span=>1
-);
-wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(14885854301009854)
-,p_button_sequence=>20
-,p_button_plug_id=>wwv_flow_imp.id(14885715660009853)
-,p_button_name=>'send_seller'
-,p_button_action=>'DEFINED_BY_DA'
-,p_button_template_options=>'#DEFAULT#:t-Button--gapTop'
-,p_button_template_id=>wwv_flow_imp.id(142871669852862741)
-,p_button_is_hot=>'Y'
-,p_button_image_alt=>'Send Admin'
-,p_button_alignment=>'RIGHT'
-,p_warn_on_unsaved_changes=>null
-,p_icon_css_classes=>'fa-send-o'
-,p_grid_new_row=>'Y'
-,p_grid_column_span=>1
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(14885989146009855)
-,p_name=>'P3_COMMENT_INPUT_SELLER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(14885715660009853)
-,p_prompt=>unistr('\0627\0643\062A\0628 \0631\0633\0627\0644\062A\0643...')
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>30
-,p_begin_on_new_line=>'N'
-,p_field_template=>wwv_flow_imp.id(142869845323862738)
-,p_item_icon_css_classes=>'fa-send-o'
-,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--stretchInputs'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'disabled', 'N',
-  'submit_when_enter_pressed', 'N',
-  'subtype', 'TEXT',
-  'trim_spaces', 'BOTH')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(14886599243009862)
-,p_name=>'P3_PRODUCT_ID'
-,p_item_sequence=>40
-,p_display_as=>'NATIVE_HIDDEN'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'value_protected', 'N')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(14886860505009864)
-,p_name=>'P3_SELLER_NAME'
-,p_item_sequence=>50
-,p_use_cache_before_default=>'NO'
-,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT NAME_AR ',
-'FROM SELLERS ',
-'WHERE ID IN (SELECT SELLER_ID FROM PRODUCTS WHERE ID = :P3_PRODUCT_ID)'))
-,p_source_type=>'QUERY'
-,p_display_as=>'NATIVE_HIDDEN'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'value_protected', 'Y')).to_clob
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(17375516055830898)
 ,p_name=>'P3_BUYER_NAME'
-,p_item_sequence=>30
+,p_item_sequence=>20
 ,p_display_as=>'NATIVE_HIDDEN'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'value_protected', 'Y')).to_clob
@@ -39408,8 +38823,8 @@ wwv_flow_imp_page.create_page_item(
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(263195327425420679)
-,p_name=>'P3_COMMENT_INPUT_ADMIN'
-,p_item_sequence=>30
+,p_name=>'P3_COMMENT_INPUT'
+,p_item_sequence=>20
 ,p_item_plug_id=>wwv_flow_imp.id(263148281579420527)
 ,p_prompt=>unistr('\0627\0643\062A\0628 \0631\0633\0627\0644\062A\0643...')
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -39426,21 +38841,15 @@ wwv_flow_imp_page.create_page_item(
 );
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(77364301177871549)
-,p_name=>'Send chat (Admin)'
+,p_name=>'Send chat'
 ,p_event_sequence=>10
 ,p_triggering_element_type=>'BUTTON'
 ,p_triggering_button_id=>wwv_flow_imp.id(77362805083871539)
-,p_condition_element=>'P3_COMMENT_INPUT_ADMIN'
+,p_condition_element=>'P3_COMMENT_INPUT'
 ,p_triggering_condition_type=>'NOT_NULL'
 ,p_bind_type=>'live'
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'click'
-,p_display_when_type=>'EXISTS'
-,p_display_when_cond=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT 1',
-'FROM INDIVIDUAL_REALESTATE_REQUESTS',
-'WHERE ID = :P3_ID',
-'  AND LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => STATUS) IN (''submit_request'', ''request_approval'')'))
 );
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(77364841287871551)
@@ -39459,7 +38868,7 @@ wwv_flow_imp_page.create_page_da_action(
 '    v_chat_id NUMBER;',
 'BEGIN',
 '    INSERT INTO INDIVIDUAL_REALESTATE_CHAT (REQUEST_ID, MESSAGE)',
-'        VALUES (:P3_ID, :P3_COMMENT_INPUT_ADMIN)',
+'        VALUES (:P3_ID, :P3_COMMENT_INPUT)',
 '        RETURNING ID INTO v_chat_id;',
 '',
 '    IF SQL%ROWCOUNT = 0 THEN',
@@ -39490,7 +38899,7 @@ unistr('        RAISE_APPLICATION_ERROR (-20002, ''\062E\0637\0623 \0641\064A \0
 '        l_result := SYSTEM_CONTROLS.send_email ( ',
 '                        p_to       => ''sara.alzamil@mobasher.sa'',',
 unistr('                        p_subject  => '' \0625\0634\0639\0627\0631 \0628\0631\0633\0627\0644\0629 \062C\062F\064A\062F\0629 \0645\0646 \0639\0645\064A\0644 (\0639\0642\0627\0631\0627\062A \0627\0644\0623\0641\0631\0627\062F)'','),
-unistr('                        p_html     => '' \062A\0645 \0625\0631\0633\0627\0644 \0631\0633\0627\0644\0629 \062C\062F\064A\062F\0629 \0645\0646 \0627\0644\0645\0634\062A\0631\064A: '' || :P3_BUYER_NAME || '' \064A\0642\0648\0644 ('' || :P3_COMMENT_INPUT_ADMIN ||'),
+unistr('                        p_html     => '' \062A\0645 \0625\0631\0633\0627\0644 \0631\0633\0627\0644\0629 \062C\062F\064A\062F\0629 \0645\0646 \0627\0644\0645\0634\062A\0631\064A: '' || :P3_BUYER_NAME || '' \064A\0642\0648\0644 ('' || :P3_COMMENT_INPUT ||'),
 unistr('                                      '') <br> \0648\0644\0645\0632\064A\062F \0645\0646 \0627\0644\062A\0641\0627\0635\064A\0644 \0627\0644\0631\062C\0627\0621 \0632\064A\0627\0631\0629 \0645\0646\0635\0629 \0627\0644\0625\062F\0627\0631\0629 \0627\0644\0639\0644\064A\0627'','),
 '                        p_message  => l_message',
 '                    );',
@@ -39504,7 +38913,7 @@ unistr('                                      '') <br> \0648\0644\0645\0632\064A
 '',
 '',
 ''))
-,p_attribute_02=>'P3_COMMENT_INPUT_ADMIN,P3_ID,P3_BUYER_NAME'
+,p_attribute_02=>'P3_COMMENT_INPUT,P3_ID,P3_BUYER_NAME'
 ,p_attribute_05=>'PLSQL'
 ,p_wait_for_result=>'Y'
 );
@@ -39516,7 +38925,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_execute_on_page_init=>'N'
 ,p_action=>'NATIVE_CLEAR'
 ,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P3_COMMENT_INPUT_ADMIN'
+,p_affected_elements=>'P3_COMMENT_INPUT'
 );
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(77365844724871552)
@@ -39530,111 +38939,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(14886275820009858)
-,p_name=>'Send chat (Seller)'
-,p_event_sequence=>20
-,p_triggering_element_type=>'BUTTON'
-,p_triggering_button_id=>wwv_flow_imp.id(14885854301009854)
-,p_condition_element=>'P3_COMMENT_INPUT_SELLER'
-,p_triggering_condition_type=>'NOT_NULL'
-,p_bind_type=>'live'
-,p_execution_type=>'IMMEDIATE'
-,p_bind_event_type=>'click'
-,p_display_when_type=>'EXISTS'
-,p_display_when_cond=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT 1',
-'FROM INDIVIDUAL_REALESTATE_REQUESTS',
-'WHERE ID = :P3_ID',
-'  AND  LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => STATUS) IN (''request_assigned'')'))
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(14886327887009859)
-,p_event_id=>wwv_flow_imp.id(14886275820009858)
-,p_event_result=>'TRUE'
-,p_action_sequence=>10
-,p_execute_on_page_init=>'N'
-,p_name=>'Insert the comment'
-,p_action=>'NATIVE_EXECUTE_PLSQL_CODE'
-,p_attribute_01=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'DECLARE',
-'    l_count         NUMBER;',
-'    l_result        NUMBER;',
-'    l_message       VARCHAR2(1000);',
-'    l_buyer_name    VARCHAR2(255);',
-'    l_seller_email    VARCHAR2(255);',
-'    v_chat_id NUMBER;',
-'BEGIN',
-'    INSERT INTO INDIVIDUAL_REALESTATE_SELLER_CHAT (REQUEST_ID, MESSAGE)',
-'        VALUES (:P3_ID, :P3_COMMENT_INPUT_SELLER)',
-'        RETURNING ID INTO v_chat_id;',
-'',
-'    IF SQL%ROWCOUNT = 0 THEN',
-unistr('        RAISE_APPLICATION_ERROR (-20001, ''\062E\0637\0623 \0641\064A \0625\0631\0633\0627\0644 \0627\0644\0645\062D\0627\062F\062B\0629'');'),
-'    END IF;',
-'',
-'    UPDATE INDIVIDUAL_REALESTATE_SELLER_CHAT',
-'       SET CREATED_BY = :P3_BUYER_NAME',
-'     WHERE ID = v_chat_id;',
-'',
-'    IF SQL%ROWCOUNT = 0 THEN',
-unistr('        RAISE_APPLICATION_ERROR (-20002, ''\062E\0637\0623 \0641\064A \0625\0631\0633\0627\0644 \0627\0644\0645\062D\0627\062F\062B\0629'');'),
-'    END IF;',
-'',
-'    SELECT count(1)',
-'      INTO l_count',
-'      FROM INDIVIDUAL_REALESTATE_SELLER_CHAT',
-'     WHERE REQUEST_ID = :P3_ID',
-'       AND CREATED_BY = :P3_BUYER_NAME;',
-'    ',
-'    IF l_count = 1 THEN',
-'        SELECT DEFAULT_EMAIL',
-'          INTO l_seller_email',
-'          FROM SELLERS',
-'         WHERE ID in (SELECT SELLER_ID FROM PRODUCTS WHERE ID = :P3_PRODUCT_ID);',
-'',
-'        -- SEND EMAIL TO THE Seller (Selin)',
-'        l_result := SYSTEM_CONTROLS.send_email ( ',
-'                        p_to       => l_seller_email,',
-unistr('                        p_subject  => '' \0625\0634\0639\0627\0631 \0628\0631\0633\0627\0644\0629 \062C\062F\064A\062F\0629 \0645\0646 \0639\0645\064A\0644 (\0639\0642\0627\0631\0627\062A \0627\0644\0623\0641\0631\0627\062F)'','),
-unistr('                        p_html     => '' \062A\0645 \0625\0631\0633\0627\0644 \0631\0633\0627\0644\0629 \062C\062F\064A\062F\0629 \0645\0646 \0627\0644\0645\0634\062A\0631\064A: '' || :P3_BUYER_NAME || '' \064A\0642\0648\0644 ('' || :P3_COMMENT_INPUT_SELLER ||'),
-unistr('                                      '') <br> \0648\0644\0645\0632\064A\062F \0645\0646 \0627\0644\062A\0641\0627\0635\064A\0644 \0627\0644\0631\062C\0627\0621 \0632\064A\0627\0631\0629 \0645\0646\0635\0629 \0627\0644\0625\062F\0627\0631\0629 \0627\0644\0639\0644\064A\0627'','),
-'                        p_message  => l_message',
-'                    );',
-'',
-'        IF l_result <> 1 THEN',
-'            RAISE_APPLICATION_ERROR (-20007, l_message);',
-'        END IF;',
-'    END IF;',
-'END;'))
-,p_attribute_02=>'P3_COMMENT_INPUT_SELLER,P3_ID,P3_BUYER_NAME,P3_PRODUCT_ID'
-,p_attribute_05=>'PLSQL'
-,p_wait_for_result=>'Y'
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(14886437094009860)
-,p_event_id=>wwv_flow_imp.id(14886275820009858)
-,p_event_result=>'TRUE'
-,p_action_sequence=>20
-,p_execute_on_page_init=>'N'
-,p_action=>'NATIVE_CLEAR'
-,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P3_COMMENT_INPUT_SELLER'
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(14886587432009861)
-,p_event_id=>wwv_flow_imp.id(14886275820009858)
-,p_event_result=>'TRUE'
-,p_action_sequence=>30
-,p_execute_on_page_init=>'N'
-,p_action=>'NATIVE_REFRESH'
-,p_affected_elements_type=>'REGION'
-,p_affected_region_id=>wwv_flow_imp.id(14884426348009840)
-,p_attribute_01=>'N'
-);
-wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(77366279594871552)
 ,p_name=>'CLEAR ITEMS'
-,p_event_sequence=>30
+,p_event_sequence=>20
 ,p_bind_type=>'live'
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'ready'
@@ -39647,12 +38954,38 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_execute_on_page_init=>'N'
 ,p_action=>'NATIVE_CLEAR'
 ,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P3_COMMENT_INPUT_ADMIN,P3_COMMENT_INPUT_SELLER'
+,p_affected_elements=>'P3_COMMENT_INPUT'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(76251515486347210)
+,p_name=>'Update '
+,p_event_sequence=>30
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P3_EDITABLE'
+,p_bind_type=>'live'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(76251669918347211)
+,p_event_id=>wwv_flow_imp.id(76251515486347210)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_EXECUTE_PLSQL_CODE'
+,p_attribute_01=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
+'   SET IS_EDITABLE = :P3_EDITABLE',
+' where id = :P3_ID;',
+''))
+,p_attribute_02=>'P3_ID,P3_EDITABLE'
+,p_attribute_05=>'PLSQL'
+,p_wait_for_result=>'Y'
 );
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43380437702659293)
 ,p_name=>'Refresh the chat'
-,p_event_sequence=>50
+,p_event_sequence=>40
 ,p_bind_type=>'live'
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'ready'
@@ -39664,30 +38997,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
 ,p_action=>'PLUGIN_PLUGIN.DA.AUTO.REGION.REFRESH'
-,p_attribute_01=>'adminChat'
+,p_attribute_01=>'comments'
 ,p_attribute_02=>'5'
-,p_server_condition_type=>'EXISTS'
-,p_server_condition_expr1=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT 1',
-'FROM INDIVIDUAL_REALESTATE_REQUESTS',
-'WHERE ID = :P3_ID',
-'  AND LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => STATUS) IN (''submit_request'', ''request_approval'')'))
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(14886751738009863)
-,p_event_id=>wwv_flow_imp.id(43380437702659293)
-,p_event_result=>'TRUE'
-,p_action_sequence=>20
-,p_execute_on_page_init=>'N'
-,p_action=>'PLUGIN_PLUGIN.DA.AUTO.REGION.REFRESH'
-,p_attribute_01=>'sellerChat'
-,p_attribute_02=>'5'
-,p_server_condition_type=>'EXISTS'
-,p_server_condition_expr1=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT 1',
-'FROM INDIVIDUAL_REALESTATE_REQUESTS',
-'WHERE ID = :P3_ID',
-'  AND  LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => STATUS) IN (''request_assigned'')'))
 );
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(14538006155002561)
@@ -39698,69 +39009,24 @@ wwv_flow_imp_page.create_page_process(
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'DECLARE',
 '    v_count NUMBER;',
-'    v_status NUMBER;',
 'BEGIN',
-'    SELECT STATUS',
-'      INTO v_status ',
-'      FROM INDIVIDUAL_REALESTATE_REQUESTS',
-'     WHERE ID = :P3_ID;',
+'    SELECT COUNT(1)',
+'      INTO v_count',
+'      FROM INDIVIDUAL_REALESTATE_CHAT',
+'     WHERE REQUEST_ID = :P3_ID',
+'       AND IS_SEEN = 0',
+'       AND CREATED_BY <> :P3_BUYER_NAME;',
 '',
-'    IF LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => v_status) IN (''submit_request'', ''request_approval'') THEN ',
-'        SELECT COUNT(1)',
-'          INTO v_count',
-'          FROM INDIVIDUAL_REALESTATE_CHAT',
+'    IF v_count <> 0 THEN',
+'        UPDATE INDIVIDUAL_REALESTATE_CHAT',
+'           SET IS_SEEN = 1',
 '         WHERE REQUEST_ID = :P3_ID',
-'           AND IS_SEEN = 0',
 '           AND CREATED_BY <> :P3_BUYER_NAME;',
 '',
-'        IF v_count <> 0 THEN',
-'            UPDATE INDIVIDUAL_REALESTATE_CHAT',
-'               SET IS_SEEN = 1',
-'             WHERE REQUEST_ID = :P3_ID',
-'               AND CREATED_BY <> :P3_BUYER_NAME;',
-'',
-'            IF SQL%ROWCOUNT = 0 THEN',
-unistr('                RAISE_APPLICATION_ERROR(-20002, ''\062E\0637\0623 \0641\064A \062D\0627\0644\0629 \0631\0624\064A\0629 \0627\0644\0631\0633\0627\0626\0644 \0627\0644\062C\062F\064A\062F\0629'');'),
-'            END IF;',
+'        IF SQL%ROWCOUNT = 0 THEN',
+unistr('            RAISE_APPLICATION_ERROR(-20003, ''\062E\0637\0623 \0641\064A \062D\0627\0644\0629 \0631\0624\064A\0629 \0627\0644\0631\0633\0627\0626\0644 \0627\0644\062C\062F\064A\062F\0629'');'),
 '        END IF;',
-'        ',
-'    ELSIF LOOKUPS_MNT.lookup_detail_code_by_id (p_lookup_detail_id => v_status) IN (''request_assigned'') THEN ',
-'        SELECT COUNT(1)',
-'          INTO v_count',
-'          FROM INDIVIDUAL_REALESTATE_SELLER_CHAT',
-'         WHERE REQUEST_ID = :P3_ID',
-'           AND IS_SEEN = 0',
-'           AND CREATED_BY <> :P3_BUYER_NAME;',
-'',
-'        IF v_count <> 0 THEN',
-'            UPDATE INDIVIDUAL_REALESTATE_SELLER_CHAT',
-'               SET IS_SEEN = 1',
-'             WHERE REQUEST_ID = :P3_ID',
-'               AND CREATED_BY <> :P3_BUYER_NAME;',
-'',
-'            IF SQL%ROWCOUNT = 0 THEN',
-unistr('                RAISE_APPLICATION_ERROR(-20003, ''\062E\0637\0623 \0641\064A \062D\0627\0644\0629 \0631\0624\064A\0629 \0627\0644\0631\0633\0627\0626\0644 \0627\0644\062C\062F\064A\062F\0629'');'),
-'            END IF;',
-'        END IF;',
-'',
 '    END IF;',
-'    -- SELECT COUNT(1)',
-'    --   INTO v_count',
-'    --   FROM INDIVIDUAL_REALESTATE_CHAT',
-'    --  WHERE REQUEST_ID = :P3_ID',
-'    --    AND IS_SEEN = 0',
-'    --    AND CREATED_BY <> :P3_BUYER_NAME;',
-'',
-'    -- IF v_count <> 0 THEN',
-'    --     UPDATE INDIVIDUAL_REALESTATE_CHAT',
-'    --        SET IS_SEEN = 1',
-'    --      WHERE REQUEST_ID = :P3_ID',
-'    --        AND CREATED_BY <> :P3_BUYER_NAME;',
-'',
-'    --     IF SQL%ROWCOUNT = 0 THEN',
-unistr('    --         RAISE_APPLICATION_ERROR(-20003, ''\062E\0637\0623 \0641\064A \062D\0627\0644\0629 \0631\0624\064A\0629 \0627\0644\0631\0633\0627\0626\0644 \0627\0644\062C\062F\064A\062F\0629'');'),
-'    --     END IF;',
-'    -- END IF;',
 'END;'))
 ,p_process_clob_language=>'PLSQL'
 ,p_internal_uid=>18160271897033029
@@ -40127,38 +39393,6 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_alignment=>'RIGHT'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(15993902045625163)
-,p_name=>'P4_CONSTRUCTION_LICENSE'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(45447998954232896)
-,p_prompt=>unistr('\0631\062E\0635\0629 \0627\0644\0628\0646\0627\0621')
-,p_display_as=>'NATIVE_FILE'
-,p_cSize=>30
-,p_field_template=>wwv_flow_imp.id(142869845323862738)
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'allow_multiple_files', 'N',
-  'display_as', 'DROPZONE_INLINE',
-  'purge_file_at', 'SESSION',
-  'storage_type', 'APEX_APPLICATION_TEMP_FILES')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(15994017087625164)
-,p_name=>'P4_CADASTRAL'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(45447998954232896)
-,p_prompt=>unistr('\0627\0644\0631\0641\0639 \0627\0644\0645\0633\0627\062D\064A / \0645\062D\0636\0631 \0641\0631\0632')
-,p_display_as=>'NATIVE_FILE'
-,p_cSize=>30
-,p_field_template=>wwv_flow_imp.id(142869845323862738)
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'allow_multiple_files', 'N',
-  'display_as', 'DROPZONE_INLINE',
-  'purge_file_at', 'SESSION',
-  'storage_type', 'APEX_APPLICATION_TEMP_FILES')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(45448171578232898)
 ,p_name=>'P4_PRODUCT_ID'
 ,p_item_sequence=>20
@@ -40273,7 +39507,7 @@ wwv_flow_imp_page.create_page_item(
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(46689635778653175)
 ,p_name=>'P4_SELL_AUTH'
-,p_item_sequence=>100
+,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(45447998954232896)
 ,p_prompt=>unistr('\062A\0641\0648\064A\0636 \0627\0644\0628\064A\0639')
 ,p_display_as=>'NATIVE_FILE'
@@ -40292,7 +39526,7 @@ wwv_flow_imp_page.create_page_item(
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(46689741530653176)
 ,p_name=>'P4_AUTHORIZATION'
-,p_item_sequence=>90
+,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_imp.id(45447998954232896)
 ,p_prompt=>unistr('\0627\0644\062A\0641\0648\064A\0636')
 ,p_display_as=>'NATIVE_FILE'
@@ -40310,7 +39544,7 @@ wwv_flow_imp_page.create_page_item(
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(46689841104653177)
 ,p_name=>'P4_PROPERTY_RATED'
-,p_item_sequence=>80
+,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(45447998954232896)
 ,p_prompt=>unistr('\062A\0642\064A\064A\0645 \0627\0644\0639\0642\0627\0631')
 ,p_display_as=>'NATIVE_FILE'
@@ -40329,7 +39563,7 @@ wwv_flow_imp_page.create_page_item(
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(46689930303653178)
 ,p_name=>'P4_VAL_LICENSE'
-,p_item_sequence=>110
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(45447998954232896)
 ,p_prompt=>unistr('\0624\062E\0635\0649 \0641\0627\0644')
 ,p_display_as=>'NATIVE_FILE'
@@ -40347,7 +39581,7 @@ wwv_flow_imp_page.create_page_item(
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(46690060939653179)
 ,p_name=>'P4_MEDIATION_CONTRACT'
-,p_item_sequence=>120
+,p_item_sequence=>100
 ,p_item_plug_id=>wwv_flow_imp.id(45447998954232896)
 ,p_prompt=>unistr('\0639\0641\062F \0627\0644\0648\0633\0627\0637\0629')
 ,p_display_as=>'NATIVE_FILE'
@@ -40597,24 +39831,13 @@ wwv_flow_imp_page.create_page_process(
 '                            || DBMS_RANDOM.STRING(''x'', 8)',
 '                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20005, ''Error with uploading Data!'');',
-'            END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => l_file.blob_content',
+'        );',
 '',
 '        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
 '           SET INSTRUMENT_URL = l_request_url',
@@ -40635,142 +39858,8 @@ unistr('            RAISE_APPLICATION_ERROR (-20006, ''\062E\0637\0623 \0641\064
 ,p_internal_uid=>30389445369348418
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(15994107925625165)
-,p_process_sequence=>30
-,p_process_point=>'AFTER_SUBMIT'
-,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'upload CADASTRAL'
-,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'DECLARE',
-'    l_file_names        APEX_T_VARCHAR2;',
-'    l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
-'    l_file_name         VARCHAR2(255);',
-'    l_request_url	    VARCHAR2(32767);',
-'    l_result	        CLOB;',
-'    l_request_filename	VARCHAR2(500);',
-'    l_inner_folder  	VARCHAR2(500);',
-'BEGIN',
-'    l_file_names := apex_string.SPLIT (',
-'                        p_str => :P4_CADASTRAL,',
-'                        p_sep => '':'' );',
-'                        ',
-'    IF :P4_CADASTRAL IS NOT NULL THEN',
-'        SELECT *',
-'          INTO l_file',
-'          FROM APEX_APPLICATION_TEMP_FILES',
-'         WHERE NAME = :P4_CADASTRAL;',
-'',
-'        l_file_name := TO_CHAR(get_current_date, ''YY'') ',
-'                            || DBMS_RANDOM.STRING(''x'', 8)',
-'                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
-'',
-'        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
-'',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20005, ''Error with uploading Data!'');',
-'            END IF;',
-'',
-'        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
-'           SET CADASTRAL_URL = l_request_url',
-'         WHERE PRODUCT_ID = :P4_PRODUCT_ID;',
-'',
-'        IF SQL%ROWCOUNT = 0 THEN',
-unistr('            RAISE_APPLICATION_ERROR (-20016, ''\062E\0637\0623 \0641\064A \0627\0644\0646\0638\0627\0645'');'),
-'        END IF;',
-'    END IF;',
-'END;',
-''))
-,p_process_clob_language=>'PLSQL'
-,p_error_display_location=>'INLINE_IN_NOTIFICATION'
-,p_process_when_button_id=>wwv_flow_imp.id(46689351539653172)
-,p_process_when=>'P4_OPERATION'
-,p_process_when_type=>'VAL_OF_ITEM_IN_COND_EQ_COND2'
-,p_process_when2=>'EditDocs'
-,p_internal_uid=>52811715345869036
-);
-wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(15994255766625166)
-,p_process_sequence=>40
-,p_process_point=>'AFTER_SUBMIT'
-,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'upload CONSTRUCTION_LICENSE_URL'
-,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'DECLARE',
-'    l_file_names        APEX_T_VARCHAR2;',
-'    l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
-'    l_file_name         VARCHAR2(255);',
-'    l_request_url	    VARCHAR2(32767);',
-'    l_result	        CLOB;',
-'    l_request_filename	VARCHAR2(500);',
-'    l_inner_folder  	VARCHAR2(500);',
-'BEGIN',
-'    l_file_names := apex_string.SPLIT (',
-'                        p_str => :P4_CONSTRUCTION_LICENSE,',
-'                        p_sep => '':'' );',
-'                        ',
-'    IF :P4_CONSTRUCTION_LICENSE IS NOT NULL THEN',
-'        SELECT *',
-'          INTO l_file',
-'          FROM APEX_APPLICATION_TEMP_FILES',
-'         WHERE NAME = :P4_CONSTRUCTION_LICENSE;',
-'',
-'        l_file_name := TO_CHAR(get_current_date, ''YY'') ',
-'                            || DBMS_RANDOM.STRING(''x'', 8)',
-'                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
-'',
-'        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
-'',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20005, ''Error with uploading Data!'');',
-'            END IF;',
-'',
-'        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
-'           SET CONSTRUCTION_LICENSE_URL = l_request_url',
-'         WHERE PRODUCT_ID = :P4_PRODUCT_ID;',
-'',
-'        IF SQL%ROWCOUNT = 0 THEN',
-unistr('            RAISE_APPLICATION_ERROR (-20017, ''\062E\0637\0623 \0641\064A \0627\0644\0646\0638\0627\0645'');'),
-'        END IF;',
-'    END IF;',
-'END;',
-''))
-,p_process_clob_language=>'PLSQL'
-,p_error_display_location=>'INLINE_IN_NOTIFICATION'
-,p_process_when_button_id=>wwv_flow_imp.id(46689351539653172)
-,p_process_when=>'P4_OPERATION'
-,p_process_when_type=>'VAL_OF_ITEM_IN_COND_EQ_COND2'
-,p_process_when2=>'EditDocs'
-,p_internal_uid=>52811863186869037
-);
-wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(46691265690653191)
-,p_process_sequence=>50
+,p_process_sequence=>30
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
 ,p_process_name=>'upload sell auth'
@@ -40798,24 +39887,13 @@ wwv_flow_imp_page.create_page_process(
 '                            || DBMS_RANDOM.STRING(''x'', 8)',
 '                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20007, ''Error with uploading Data!'');',
-'            END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => l_file.blob_content',
+'        );',
 '',
 '        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
 '           SET SELL_AUTHORIZATION_URL = l_request_url',
@@ -40848,7 +39926,7 @@ unistr('            RAISE_APPLICATION_ERROR (-20008, ''\062E\0637\0623 \0641\064
 );
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(46691673468653195)
-,p_process_sequence=>60
+,p_process_sequence=>40
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
 ,p_process_name=>'upload rated prob'
@@ -40876,24 +39954,13 @@ wwv_flow_imp_page.create_page_process(
 '                            || DBMS_RANDOM.STRING(''x'', 8)',
 '                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20009, ''Error with uploading Data!'');',
-'            END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => l_file.blob_content',
+'        );',
 '',
 '        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
 '           SET PROPERTY_RATED_URL = l_request_url',
@@ -40926,7 +39993,7 @@ unistr('            RAISE_APPLICATION_ERROR (-20010, ''\062E\0637\0623 \0641\064
 );
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(46691382291653192)
-,p_process_sequence=>70
+,p_process_sequence=>50
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
 ,p_process_name=>'upload auth'
@@ -40956,22 +40023,13 @@ wwv_flow_imp_page.create_page_process(
 '',
 '        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
 '        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20011, ''Error with uploading Data!'');',
-'            END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => l_file.blob_content',
+'        );',
 '',
 '        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
 '           SET AUTHORIZATION_URL = l_request_url',
@@ -41004,7 +40062,7 @@ unistr('            RAISE_APPLICATION_ERROR (-20012, ''\062E\0637\0623 \0641\064
 );
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(46691471755653193)
-,p_process_sequence=>80
+,p_process_sequence=>60
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
 ,p_process_name=>'upload val'
@@ -41032,24 +40090,13 @@ wwv_flow_imp_page.create_page_process(
 '                            || DBMS_RANDOM.STRING(''x'', 8)',
 '                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20013, ''Error with uploading Data!'');',
-'            END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => l_file.blob_content',
+'        );',
 '',
 '        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
 '           SET VAL_LICENSE_URL = l_request_url',
@@ -41082,7 +40129,7 @@ unistr('            RAISE_APPLICATION_ERROR (-20014, ''\062E\0637\0623 \0641\064
 );
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(46691590048653194)
-,p_process_sequence=>90
+,p_process_sequence=>70
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
 ,p_process_name=>'upload med'
@@ -41110,24 +40157,13 @@ wwv_flow_imp_page.create_page_process(
 '                            || DBMS_RANDOM.STRING(''x'', 8)',
 '                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20015, ''Error with uploading Data!'');',
-'            END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => l_file.blob_content',
+'        );',
 '',
 '        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
 '           SET MEDIATION_CONTRACT_URL = l_request_url',
@@ -41160,7 +40196,7 @@ unistr('            RAISE_APPLICATION_ERROR (-20016, ''\062E\0637\0623 \0641\064
 );
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(51728751564186186)
-,p_process_sequence=>100
+,p_process_sequence=>80
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
 ,p_process_name=>'Upload products images'
@@ -41180,24 +40216,13 @@ wwv_flow_imp_page.create_page_process(
 '                                || DBMS_RANDOM.STRING(''x'', 8)',
 '                                || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => i.MIME_TYPE);',
 '',
-'            l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
+'            l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'            l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                            p_url                  => l_request_url,',
-'                            p_http_method          => ''PUT'',',
-'                            p_body_blob            => i.BLOB_CONTENT,',
-'                            p_credential_static_id => ''OCI_AUTH''',
-'                        );',
-'',
-'            IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS ( p_error_type    => ''SYSTEM_ERROR'',',
-'                                             p_process_name  => ''OCI_OS.put_object - App: '' || :APP_ID || '' - Page: '' || :APP_PAGE_ID,',
-'                                             p_error_code    => -2,',
-'                                             p_error_message => SUBSTR(l_result, 1, 4000),',
-'                                             p_logger_name   => :APP_USER',
-'                                        );',
-'                RAISE_APPLICATION_ERROR(-20002, ''Error with uploading Data!'');',
-'            END IF;',
+'            DBMS_CLOUD.put_object (',
+'                credential_name => :CREDENTIAL_NAME,',
+'                object_uri      => l_request_url,',
+'                contents        => i.blob_content',
+'            );',
 '',
 '            :P4_PRODUCT_IMAGES := :P4_PRODUCT_IMAGES || l_request_url || '','';',
 '        END LOOP;',
@@ -41268,27 +40293,16 @@ unistr('        RAISE_APPLICATION_ERROR (-20001, ''\0628\064A\0627\0646\0627\062
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
-'    l_file_name := TO_CHAR(get_current_date, ''YY''); ',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'       IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'            SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                       p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                       p_ERROR_CODE    => -2,',
-'                                       p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                       p_logger_name   => :APP_USER);',
-'            RAISE_APPLICATION_ERROR(-20007, ''Error with uploading Data!'');',
-'        END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
-'    INSERT INTO INDIVIDUAL_REALESTATE_ATTACHMENTS ( REQUEST_ID, FILE_NAME, URL, IS_ACTIVE )',
-'            VALUES ( :P4_REQUEST_ID, :P4_FILE_NAME ,l_request_url,  1 );',
+'    INSERT INTO INDIVIDUAL_REQUEST_ATTACHMENTS (CATEGORY,  REQUEST_ID, FILE_NAME, URL )',
+'            VALUES (''REALESTATE'', :P4_REQUEST_ID, :P4_FILE_NAME ,l_request_url);',
 '',
 '    IF SQL%ROWCOUNT = 0 THEN',
 unistr('        RAISE_APPLICATION_ERROR (-20008, ''\062E\0637\0623 \0641\064A \0627\0644\0646\0638\0627\0645'');'),
@@ -41322,458 +40336,6 @@ wwv_flow_imp_page.create_page_process(
 ,p_attribute_02=>'Y'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 ,p_internal_uid=>30389341590348417
-);
-end;
-/
-prompt --application/pages/page_00005
-begin
-wwv_flow_imp_page.create_page(
- p_id=>5
-,p_name=>'Marketing contract'
-,p_alias=>'MARKETING-CONTRACT'
-,p_page_mode=>'MODAL'
-,p_autocomplete_on_off=>'OFF'
-,p_page_template_options=>'#DEFAULT#'
-,p_protection_level=>'C'
-,p_page_component_map=>'16'
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(14982026591672232)
-,p_plug_name=>'note'
-,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--removeHeader js-removeLandmark:t-Region--textContent:t-Region--scrollBody:margin-top-lg:margin-bottom-none'
-,p_plug_template=>wwv_flow_imp.id(142799159174862689)
-,p_plug_display_sequence=>60
-,p_plug_source=>unistr('<span style="font-weight:bold;color:#026E63;font-size:12px">  * \0627\0644\062A\0642\064A\0645 \0639\0646 \0637\0631\064A\0642 \0645\0628\0627\0634\0631 \064A\0643\0648\0646 \0628\0631\0633\0648\0645 \0631\0645\0632\064A\0629 </span>')
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(14982175523672233)
-,p_plug_name=>'BUTTON'
-,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--removeHeader js-removeLandmark:t-Region--noBorder:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(142799159174862689)
-,p_plug_display_sequence=>10
-,p_plug_display_point=>'REGION_POSITION_03'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'expand_shortcuts', 'N',
-  'output_as', 'HTML')).to_clob
-);
-wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(14530514895106615)
-,p_button_sequence=>10
-,p_button_plug_id=>wwv_flow_imp.id(14982175523672233)
-,p_button_name=>'Confirm'
-,p_button_action=>'SUBMIT'
-,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_imp.id(142872382153862743)
-,p_button_is_hot=>'Y'
-,p_button_image_alt=>unistr('\062A\0623\0643\064A\062F')
-,p_button_position=>'PREVIOUS'
-,p_button_alignment=>'RIGHT'
-,p_confirm_message=>unistr('\0647\0644 \0623\0646\062A \0645\062A\0623\0643\062F\061F')
-,p_confirm_style=>'success'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(14531188560106622)
-,p_name=>'P5_PROPERTY_RATED_URL'
-,p_item_sequence=>90
-,p_display_as=>'NATIVE_HIDDEN'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'value_protected', 'Y')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(14531362701106623)
-,p_name=>'P5_PROPERTY_RATED'
-,p_item_sequence=>80
-,p_prompt=>unistr('\062A\0642\064A\064A\0645 \0627\0644\0639\0642\0627\0631')
-,p_display_as=>'NATIVE_FILE'
-,p_cSize=>30
-,p_field_template=>wwv_flow_imp.id(142869845323862738)
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'allow_multiple_files', 'N',
-  'display_as', 'DROPZONE_INLINE',
-  'dropzone_title', unistr('\0623\0631\0641\0642 \062A\0642\064A\0645 \0627\0644\0639\0642\0627\0631'),
-  'purge_file_at', 'SESSION',
-  'storage_type', 'APEX_APPLICATION_TEMP_FILES')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(14531387966106624)
-,p_name=>'P5_CONTRACT'
-,p_item_sequence=>50
-,p_prompt=>unistr('\0639\0642\062F \0627\0644\062A\0633\0648\064A\0642 \0628\0639\062F \0627\0644\062A\0648\0642\064A\0639')
-,p_display_as=>'NATIVE_FILE'
-,p_cSize=>30
-,p_field_template=>wwv_flow_imp.id(142869845323862738)
-,p_item_template_options=>'#DEFAULT#'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'allow_multiple_files', 'N',
-  'display_as', 'DROPZONE_INLINE',
-  'dropzone_title', unistr('\0623\0631\0641\0642 \0627\0644\0639\0642\062F'),
-  'purge_file_at', 'SESSION',
-  'storage_type', 'APEX_APPLICATION_TEMP_FILES')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(14531504742106625)
-,p_name=>'P5_CONFIRM'
-,p_is_required=>true
-,p_item_sequence=>70
-,p_prompt=>unistr('\062A\0642\064A\064A\0645 \0627\0644\0639\0642\0627\0631 \0639\0646 \0637\0631\064A\0642 \0645\0628\0627\0634\0631\061F')
-,p_display_as=>'NATIVE_RADIOGROUP'
-,p_named_lov=>'YES/NO ( NUMBER )'
-,p_lov=>'.'||wwv_flow_imp.id(144625644310751698)||'.'
-,p_field_template=>wwv_flow_imp.id(142869845323862738)
-,p_item_template_options=>'#DEFAULT#'
-,p_lov_display_extra=>'NO'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'number_of_columns', '2',
-  'page_action_on_selection', 'NONE')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(14531765918106627)
-,p_name=>'P5_REQUEST_ID'
-,p_item_sequence=>30
-,p_display_as=>'NATIVE_HIDDEN'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'value_protected', 'Y')).to_clob
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(14980472879672216)
-,p_name=>'P5_PRODUCT_ID'
-,p_item_sequence=>40
-,p_display_as=>'NATIVE_HIDDEN'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'value_protected', 'Y')).to_clob
-);
-wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(14531134581106621)
-,p_name=>'HIDE'
-,p_event_sequence=>10
-,p_bind_type=>'live'
-,p_execution_type=>'IMMEDIATE'
-,p_bind_event_type=>'ready'
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(14531044082106620)
-,p_event_id=>wwv_flow_imp.id(14531134581106621)
-,p_event_result=>'TRUE'
-,p_action_sequence=>10
-,p_execute_on_page_init=>'Y'
-,p_action=>'NATIVE_HIDE'
-,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P5_PROPERTY_RATED'
-);
-wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(14530947884106619)
-,p_name=>'RATING'
-,p_event_sequence=>20
-,p_triggering_element_type=>'ITEM'
-,p_triggering_element=>'P5_CONFIRM'
-,p_bind_type=>'live'
-,p_execution_type=>'IMMEDIATE'
-,p_bind_event_type=>'change'
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(14883603620009832)
-,p_event_id=>wwv_flow_imp.id(14530947884106619)
-,p_event_result=>'TRUE'
-,p_action_sequence=>10
-,p_execute_on_page_init=>'N'
-,p_action=>'NATIVE_HIDE'
-,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P5_PROPERTY_RATED'
-,p_client_condition_type=>'EQUALS'
-,p_client_condition_element=>'P5_CONFIRM'
-,p_client_condition_expression=>'1'
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(14981672074672228)
-,p_event_id=>wwv_flow_imp.id(14530947884106619)
-,p_event_result=>'TRUE'
-,p_action_sequence=>20
-,p_execute_on_page_init=>'N'
-,p_action=>'NATIVE_CLEAR'
-,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P5_PROPERTY_RATED,P5_PROPERTY_RATED_URL'
-,p_client_condition_type=>'EQUALS'
-,p_client_condition_element=>'P5_CONFIRM'
-,p_client_condition_expression=>'1'
-);
-wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(14530811449106618)
-,p_event_id=>wwv_flow_imp.id(14530947884106619)
-,p_event_result=>'TRUE'
-,p_action_sequence=>40
-,p_execute_on_page_init=>'N'
-,p_action=>'NATIVE_SHOW'
-,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P5_PROPERTY_RATED'
-,p_client_condition_type=>'EQUALS'
-,p_client_condition_element=>'P5_CONFIRM'
-,p_client_condition_expression=>'0'
-);
-wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(14530635258106616)
-,p_process_sequence=>10
-,p_process_point=>'AFTER_SUBMIT'
-,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'upload contract'
-,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'DECLARE',
-'    l_file_names    APEX_T_VARCHAR2;',
-'    l_file          APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
-'    l_file_name     VARCHAR2(255);',
-'    l_request_url   VARCHAR2(32767);',
-'    l_result	    CLOB;',
-'    l_email_message CLOB;',
-'    l_seller_email  VARCHAR2(255);',
-'    l_email_result  VARCHAR2(255);',
-'    -- l_request_filename	VARCHAR2(500);',
-'    -- l_inner_folder  	VARCHAR2(500);',
-'BEGIN',
-'    l_file_names := apex_string.SPLIT (',
-'                        p_str => :P5_CONTRACT,',
-'                        p_sep => '':'' );',
-'',
-'    IF l_file_names.count = 0 THEN',
-unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064A\0643 \0631\0641\0639 \0627\0644\0639\0642\062F \0628\0639\062F \062A\0648\0642\064A\0639\0647 '');'),
-'    END IF;',
-'                        ',
-'    IF l_file_names.count > 0 THEN',
-'        SELECT *',
-'          INTO l_file',
-'          FROM APEX_APPLICATION_TEMP_FILES',
-'         WHERE NAME = :P5_CONTRACT;',
-'',
-'        l_file_name := TO_CHAR(get_current_date, ''YY'') ',
-'                            || DBMS_RANDOM.STRING(''x'', 8)',
-'                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
-'',
-'        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
-'',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20009, ''Error with uploading Data!'');',
-'            END IF;',
-'',
-'        UPDATE INDIVIDUAL_REALESTATE_AFTER_ASSIGNED',
-'           SET ASSIGNED_MARKETING_CONTRACT_URL = l_request_url',
-'         WHERE REQUEST_ID = :P5_REQUEST_ID;',
-'',
-'        IF SQL%ROWCOUNT = 0 THEN',
-unistr('            RAISE_APPLICATION_ERROR (-20002, ''\062E\0637\0623 \0641\064A \0627\0644\0646\0638\0627\0645'');'),
-'        END IF;',
-'',
-'        -- SEND EMAIL TO SELIN',
-'        SELECT DEFAULT_EMAIL',
-'          INTO l_seller_email',
-'          FROM SELLERS',
-'         WHERE ID IN (SELECT SELLER_ID FROM PRODUCTS WHERE ID = :P5_PRODUCT_ID);',
-'        -- SEND EMAIL TO THE SELLER',
-'        l_email_result := SYSTEM_CONTROLS.send_email ( ',
-'                        p_to       => l_seller_email,',
-unistr('                        p_subject  => '' \0625\0634\0639\0627\0631 \0628\0625\0636\0627\0641\0629 \0639\0642\0627\0631 \062C\062F\064A\062F \0645\0646 \0639\0645\064A\0644 (\0639\0642\0627\0631\0627\062A \0627\0644\0623\0641\0631\0627\062F)'','),
-unistr('                        p_html     => ''\062A\0645 \0625\0636\0627\0641\0629 \0639\0642\0627\0631 \062C\062F\064A\062F \0648\0644\0645\0632\064A\062F \0645\0646 \0627\0644\062A\0641\0627\0635\064A\0644 \0627\0644\0631\062C\0627\0621 \0632\064A\0627\0631\0629 \0645\0648\0642\0639 \0627\0644\0628\0627\0626\0639 \0644\062F\0649 \0645\0628\0627\0634\0631'','),
-'                        p_message  => l_email_message',
-'                    );',
-'',
-'        IF l_email_result <> 1 THEN',
-'            RAISE_APPLICATION_ERROR (-20007, l_email_message);',
-'        END IF;',
-'',
-'    END IF;',
-'END;',
-''))
-,p_process_clob_language=>'PLSQL'
-,p_error_display_location=>'INLINE_IN_NOTIFICATION'
-,p_process_when_button_id=>wwv_flow_imp.id(14530514895106615)
-,p_internal_uid=>50641943184751841
-);
-wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(14883821415009834)
-,p_process_sequence=>20
-,p_process_point=>'AFTER_SUBMIT'
-,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'Update prob rating'
-,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'DECLARE',
-'    l_file_names        APEX_T_VARCHAR2;',
-'    l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
-'    l_file_name         VARCHAR2(255);',
-'    l_request_url	    VARCHAR2(32767);',
-'    l_result	        CLOB;',
-'BEGIN',
-'    IF :P5_CONFIRM = 0 THEN',
-'        l_file_names := apex_string.SPLIT (',
-'                            p_str => :P5_PROPERTY_RATED,',
-'                            p_sep => '':'' );',
-'',
-'        IF l_file_names.count = 0 THEN',
-unistr('            RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064A\0643 \0631\0641\0639 \062A\0642\064A\064A\0645 \0627\0644\0639\0642\0627\0631'');'),
-'        END IF;',
-'                            ',
-'        IF l_file_names.count > 0 THEN',
-'            SELECT *',
-'              INTO l_file',
-'              FROM APEX_APPLICATION_TEMP_FILES',
-'             WHERE NAME = :P5_PROPERTY_RATED;',
-'            l_file_name := TO_CHAR(get_current_date, ''YY'') ',
-'                                || DBMS_RANDOM.STRING(''x'', 8)',
-'                                || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
-'',
-'            l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'            ',
-'            l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                            p_url                  => l_request_url,',
-'                            p_http_method          => ''PUT'',',
-'                            p_body_blob            => l_file.BLOB_CONTENT,',
-'                            p_credential_static_id => ''OCI_AUTH''',
-'                        );',
-'            l_file_name := TO_CHAR(get_current_date, ''YY''); ',
-'',
-'               IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                    SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                               p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                               p_ERROR_CODE    => -2,',
-'                                               p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                               p_logger_name   => :APP_USER);',
-'                    RAISE_APPLICATION_ERROR(-20009, ''Error with uploading Data!'');',
-'                END IF;',
-'',
-'            -- :P5_PROPERTY_RATED_URL := l_request_url;',
-'            UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
-'               SET IS_PROPERTY_RATED = 1,',
-'                   HOW_RATE_PROPERTY = LOOKUPS_MNT.lookup_detail_id_by_code (p_lookup_detail_code => ''through_other_company'', p_lookup_code => ''evaluation''),',
-'                   CONFIRM_MOBASHER_EVALUATING = 0,',
-'                   PROPERTY_RATED_URL = l_request_url',
-'             WHERE ID = :P5_REQUEST_ID;',
-'',
-'            IF SQL%ROWCOUNT = 0 THEN',
-unistr('                RAISE_APPLICATION_ERROR (-20002, ''\062E\0637\0623 \0641\064A \0627\0644\0646\0638\0627\0645'');'),
-'            END IF;',
-'        END IF;',
-'        ',
-'    ELSIF :P5_CONFIRM = 1 THEN ',
-'        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
-'           SET IS_PROPERTY_RATED = 0,',
-'               HOW_RATE_PROPERTY = LOOKUPS_MNT.lookup_detail_id_by_code (p_lookup_detail_code => ''through_mobasher_company'', p_lookup_code => ''evaluation''),',
-'               CONFIRM_MOBASHER_EVALUATING = 1',
-'         WHERE ID = :P5_REQUEST_ID;',
-'',
-'        IF SQL%ROWCOUNT = 0 THEN',
-unistr('            RAISE_APPLICATION_ERROR (-20003, ''\062E\0637\0623 \0641\064A \0627\0644\0646\0638\0627\0645'');'),
-'        END IF;',
-'    END IF; ',
-'END;',
-''))
-,p_process_clob_language=>'PLSQL'
-,p_error_display_location=>'INLINE_IN_NOTIFICATION'
-,p_process_when_button_id=>wwv_flow_imp.id(14530514895106615)
-,p_internal_uid=>51701428835253705
-);
-wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(14530735309106617)
-,p_process_sequence=>40
-,p_process_point=>'AFTER_SUBMIT'
-,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'upload prob rating'
-,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'DECLARE',
-'    l_file_names        APEX_T_VARCHAR2;',
-'    l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
-'    l_file_name         VARCHAR2(255);',
-'    l_request_url	    VARCHAR2(32767);',
-'    l_result	        CLOB;',
-'    l_request_filename	VARCHAR2(500);',
-'    l_inner_folder  	VARCHAR2(500);',
-'BEGIN',
-'',
-'    l_file_names := apex_string.SPLIT (',
-'                        p_str => :P5_PROPERTY_RATED,',
-'                        p_sep => '':'' );',
-'',
-'    IF l_file_names.count = 0 THEN',
-unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064A\0643 \0631\0641\0639 \062A\0642\064A\064A\0645 \0627\0644\0639\0642\0627\0631'');'),
-'    END IF;',
-'                        ',
-'    IF l_file_names.count > 1 THEN',
-'        SELECT *',
-'          INTO l_file',
-'          FROM APEX_APPLICATION_TEMP_FILES',
-'         WHERE NAME = :P5_PROPERTY_RATED;',
-'        :P5_PROPERTY_RATED_URL := NULL;',
-'        l_file_name := TO_CHAR(get_current_date, ''YY'') ',
-'                            || DBMS_RANDOM.STRING(''x'', 8)',
-'                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
-'',
-'        l_request_url := :G_OCI_BASE_URL||''/b/individual_realestate/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'        l_file_name := TO_CHAR(get_current_date, ''YY''); ',
-'',
-'           IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE    => ''SYSTEM_ERROR'',',
-'                                           p_PROCESS_NAME  => ''OCI_OS.put_object - '' || :APP_ID,',
-'                                           p_ERROR_CODE    => -2,',
-'                                           p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                           p_logger_name   => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20009, ''Error with uploading Data!'');',
-'            END IF;',
-'',
-'        -- :P5_PROPERTY_RATED_URL := l_request_url;',
-'        UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
-'           SET PROPERTY_RATED_URL = l_request_url',
-'         WHERE ID = :P5_REQUEST_ID;',
-'',
-'        IF SQL%ROWCOUNT = 0 THEN',
-unistr('            RAISE_APPLICATION_ERROR (-20001, ''\062E\0637\0623 \0641\064A \0627\0644\0646\0638\0627\0645'');'),
-'        END IF;',
-'        -- UPDATE INDIVIDUAL_REALESTATE_REQUESTS',
-'        --    SET IS_PROPERTY_RATED = 1,',
-'        --        HOW_RATE_PROPERTY = LOOKUPS_MNT.lookup_detail_id_by_code (p_lookup_detail_code => ''through_other_company'', p_lookup_code => ''evaluation''),',
-'        --        PROPERTY_RATED_URL = l_request_url,',
-'        --        CONFIRM_MOBASHER_EVALUATING = 0',
-'        --  WHERE ID = :P5_REQUEST_ID;',
-'',
-'        -- IF SQL%ROWCOUNT = 0 THEN',
-unistr('        --     RAISE_APPLICATION_ERROR (-20001, ''\062E\0637\0623 \0641\064A \0627\0644\0646\0638\0627\0645'');'),
-'        -- END IF;',
-'    END IF;',
-'END;',
-''))
-,p_process_clob_language=>'PLSQL'
-,p_error_display_location=>'INLINE_IN_NOTIFICATION'
-,p_process_when_button_id=>wwv_flow_imp.id(14530514895106615)
-,p_process_when_type=>'NEVER'
-,p_internal_uid=>50641843133751840
-);
-wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(14530410540106614)
-,p_process_sequence=>60
-,p_process_point=>'AFTER_SUBMIT'
-,p_process_type=>'NATIVE_CLOSE_WINDOW'
-,p_process_name=>'close'
-,p_attribute_02=>'Y'
-,p_error_display_location=>'INLINE_IN_NOTIFICATION'
-,p_internal_uid=>50642167902751843
 );
 end;
 /
@@ -41917,19 +40479,13 @@ wwv_flow_imp_page.create_page_process(
 '                                || DBMS_RANDOM.STRING(''x'', 8)',
 '                                || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'            l_request_url := :G_OCI_BASE_URL||''/b/''||:P997_BUCKET_NAME||''/o/'' || l_file_name; --APEX_UTIL.url_encode(l_file.FILENAME);',
+'            l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'            l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                            p_url                  => l_request_url,',
-'                            p_http_method          => ''PUT'',',
-'                            p_body_blob            => l_file.BLOB_CONTENT,',
-'                            p_credential_static_id => ''OCI_AUTH''',
-'                        );',
-'',
-'            IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object'',p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'                RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'            END IF;',
+'            DBMS_CLOUD.put_object (',
+'                credential_name => :CREDENTIAL_NAME,',
+'                object_uri      => l_request_url,',
+'                contents        => l_file.blob_content',
+'            );',
 '        END LOOP;',
 '    ELSE    ',
 '        SELECT *',
@@ -41941,19 +40497,13 @@ wwv_flow_imp_page.create_page_process(
 '                            || DBMS_RANDOM.STRING(''x'', 8)',
 '                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'        l_request_url := :G_OCI_BASE_URL||''/b/''||:P997_BUCKET_NAME||''/o/'' || l_file_name; --APEX_UTIL.url_encode(l_file.FILENAME);',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'        IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'            SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object'',p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'            RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'        END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => l_file.blob_content',
+'        );',
 '    ',
 '        :P997_RETURNED_URL := l_request_url;',
 '    END IF;',
