@@ -19,7 +19,7 @@ whenever sqlerror exit sql.sqlcode rollback
 begin
 wwv_flow_imp.import_begin (
  p_version_yyyy_mm_dd=>'2024.11.30'
-,p_release=>'24.2.5'
+,p_release=>'24.2.15'
 ,p_default_workspace_id=>8097545542331186
 ,p_default_application_id=>133
 ,p_default_id_offset=>14187432767320341
@@ -33,7 +33,7 @@ prompt APPLICATION 133 - Buyer Tickecting
 -- Application Export:
 --   Application:     133
 --   Name:            Buyer Tickecting
---   Exported By:     ADMIN
+--   Exported By:     M.SAWALHAH
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      6
@@ -71,7 +71,7 @@ prompt APPLICATION 133 - Buyer Tickecting
 --       Reports:
 --       E-Mail:
 --     Supporting Objects:  Included
---   Version:         24.2.5
+--   Version:         24.2.15
 --   Instance ID:     8097368019106270
 --
 
@@ -125,7 +125,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_string_04=>'CREDENTIAL_NAME'
 ,p_substitution_value_04=>'OBJ_STORE_CRED'
 ,p_substitution_string_05=>'LOCATION_URI'
-,p_substitution_value_05=>'https://objectstorage.me-jeddah-1.oraclecloud.com/n/axxyvf3in2t6/b/tickets/o/'
+,p_substitution_value_05=>'https://objectstorage.me-jeddah-1.oraclecloud.com/n/axxyvf3in2t6/b/demo/o/'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>35
 ,p_print_server_type=>'NATIVE'
@@ -171,7 +171,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(104835362953896801)
 ,p_name=>'Navigation Menu'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857165707
+,p_version_scn=>41802053268988
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(111031844880816539)
@@ -197,7 +197,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(105119168806897030)
 ,p_name=>'Navigation Bar'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857165745
+,p_version_scn=>41802053269034
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(105131155684897080)
@@ -235,7 +235,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(108303104408518623)
 ,p_name=>'Individuals_realestate_list'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857165786
+,p_version_scn=>41802053269077
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(108307556404518625)
@@ -964,31 +964,31 @@ end;
 prompt --application/plugin_settings
 begin
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(1459504963948381)
+ p_id=>wwv_flow_imp.id(1460444282957621)
 ,p_plugin_type=>'WEB SOURCE TYPE'
 ,p_plugin=>'NATIVE_BOSS'
-,p_version_scn=>44672575481932
+,p_version_scn=>44672576399174
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(14187700845320348)
+ p_id=>wwv_flow_imp.id(20192615470954745)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_SELECT_MANY'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'display_values_as', 'separated')).to_clob
-,p_version_scn=>41756857165577
+,p_version_scn=>41802053268847
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(14188314594320348)
+ p_id=>wwv_flow_imp.id(20193281637954745)
 ,p_plugin_type=>'DYNAMIC ACTION'
 ,p_plugin=>'NATIVE_OPEN_AI_ASSISTANT'
-,p_version_scn=>41756857165617
+,p_version_scn=>41802053268885
 );
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(14188634019320349)
+ p_id=>wwv_flow_imp.id(20193568037954746)
 ,p_plugin_type=>'PROCESS TYPE'
 ,p_plugin=>'NATIVE_GEOCODING'
 ,p_attribute_01=>'RELAX_HOUSE_NUMBER'
-,p_version_scn=>41756857165626
+,p_version_scn=>41802053268902
 );
 wwv_flow_imp_shared.create_plugin_setting(
  p_id=>wwv_flow_imp.id(36777258690288996)
@@ -1106,7 +1106,7 @@ wwv_flow_imp_shared.create_security_scheme(
 ,p_scheme_type=>'NATIVE_FUNCTION_BODY'
 ,p_attribute_01=>'return true;'
 ,p_error_message=>'Insufficient privileges, user is not an Administrator'
-,p_version_scn=>41756857167574
+,p_version_scn=>41802053271709
 ,p_caching=>'BY_USER_BY_PAGE_VIEW'
 );
 end;
@@ -1146,7 +1146,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857167636
+,p_version_scn=>41802053271811
 );
 end;
 /
@@ -1168,7 +1168,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857167668
+,p_version_scn=>41802053271848
 );
 end;
 /
@@ -1191,7 +1191,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857167680
+,p_version_scn=>41802053271888
 );
 end;
 /
@@ -1214,7 +1214,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857167692
+,p_version_scn=>41802053271918
 );
 end;
 /
@@ -1225,7 +1225,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_lov_name=>'YES OR NO'
 ,p_lov_query=>'.'||wwv_flow_imp.id(105391873861820586)||'.'
 ,p_location=>'STATIC'
-,p_version_scn=>41756857167713
+,p_version_scn=>41802053271962
 );
 wwv_flow_imp_shared.create_static_lov_data(
  p_id=>wwv_flow_imp.id(105392571481820587)
@@ -16542,7 +16542,7 @@ wwv_flow_imp_shared.create_authentication(
 ,p_attribute_01=>'nobody'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
-,p_version_scn=>41756857175248
+,p_version_scn=>41802053285294
 );
 end;
 /
@@ -16827,7 +16827,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'ajax_request'
 ,p_validation_function=>'validate_item'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857175335
+,p_version_scn=>41802053285494
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
 ,p_about_url=>'https://github.com/angooti/Apex-Captcha'
@@ -22383,7 +22383,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_render_function=>'render_dropzone'
 ,p_ajax_function=>'ajax_dropzone'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857184295
+,p_version_scn=>41802053302454
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>unistr('Dropzone is a region type plugin that allows you to provide nice looking drag\2019n\2019drop file uploads. It is based on JS Framework dropzone.js.')
 ,p_version_identifier=>'2.4.1'
@@ -31424,24 +31424,13 @@ wwv_flow_imp_page.create_page_process(
 '                            || DBMS_RANDOM.STRING(''x'', 8)',
 '                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => i.MIME_TYPE);',
 '',
-'        l_request_url := :G_OCI_BASE_URL||''/b/buyer_tickets/o/''||l_file_name;',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => i.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
-'',
-'        IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'            SYSTEM_CONTROLS.ERROR_LOGS ( p_error_type    => ''SYSTEM_ERROR'',',
-'                                         p_process_name  => ''OCI_OS.put_object_P3 - App: '' || :APP_ID,',
-'                                         p_error_code    => -2,',
-'                                         p_error_message => SUBSTR(l_result, 1, 4000),',
-'                                         p_logger_name   => :APP_USER',
-'                                    );',
-'            RAISE_APPLICATION_ERROR(-20004, ''Error with uploading Data!'');',
-'        END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => i.blob_content',
+'        );',
 '',
 '        INSERT INTO TICKET_ATTACHMENTS ( TICKET_ID, URL, FILE_NAME, IS_ACTIVE, CREATED_BY )',
 '                VALUES ( :P2_TICKET_ID, l_request_url, i.FILE_NAME, 1, :P2_BUYER_NAME );',

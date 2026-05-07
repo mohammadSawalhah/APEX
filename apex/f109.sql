@@ -19,7 +19,7 @@ whenever sqlerror exit sql.sqlcode rollback
 begin
 wwv_flow_imp.import_begin (
  p_version_yyyy_mm_dd=>'2024.11.30'
-,p_release=>'24.2.5'
+,p_release=>'24.2.15'
 ,p_default_workspace_id=>8097545542331186
 ,p_default_application_id=>109
 ,p_default_id_offset=>14125393531188761
@@ -33,7 +33,7 @@ prompt APPLICATION 109 - Seller in frame
 -- Application Export:
 --   Application:     109
 --   Name:            Seller in frame
---   Exported By:     ADMIN
+--   Exported By:     M.SAWALHAH
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                     10
@@ -74,7 +74,7 @@ prompt APPLICATION 109 - Seller in frame
 --       Reports:
 --       E-Mail:
 --     Supporting Objects:  Excluded
---   Version:         24.2.5
+--   Version:         24.2.15
 --   Instance ID:     8097368019106270
 --
 
@@ -128,9 +128,10 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_string_04=>'CREDENTIAL_NAME'
 ,p_substitution_value_04=>'OBJ_STORE_CRED'
 ,p_substitution_string_05=>'LOCATION_URI'
-,p_substitution_value_05=>'https://objectstorage.me-jeddah-1.oraclecloud.com/n/axxyvf3in2t6/b/mobasher_services/o/'
+,p_substitution_value_05=>'https://objectstorage.me-jeddah-1.oraclecloud.com/n/axxyvf3in2t6/b/demo/o/'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>27
+,p_version_scn=>45884941294860
 ,p_print_server_type=>'NATIVE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
@@ -188,7 +189,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(52138794955936095)
 ,p_name=>'Navigation Menu'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756816866318
+,p_version_scn=>41802098089317
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(37719730316810576)
@@ -206,7 +207,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(52422610044936384)
 ,p_name=>'Navigation Bar'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756816866363
+,p_version_scn=>41802098089363
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(56301556547542762)
@@ -262,7 +263,7 @@ wwv_flow_imp_shared.create_list(
 ,p_name=>'User Settings'
 ,p_list_status=>'PUBLIC'
 ,p_required_patch=>wwv_flow_imp.id(52437220268936460)
-,p_version_scn=>41756816866396
+,p_version_scn=>41802098089389
 );
 end;
 /
@@ -272,7 +273,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(54264800306060387)
 ,p_name=>'Timed Auctions'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756816866416
+,p_version_scn=>41802098089401
 );
 end;
 /
@@ -282,7 +283,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(54268948037086262)
 ,p_name=>'Live Auction'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756816866430
+,p_version_scn=>41802098089422
 );
 end;
 /
@@ -292,7 +293,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(59080834677086573)
 ,p_name=>'Seller Details List'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756816866455
+,p_version_scn=>41802098089465
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(59081071367086575)
@@ -3054,37 +3055,37 @@ end;
 prompt --application/plugin_settings
 begin
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(1458338915948381)
+ p_id=>wwv_flow_imp.id(1458724438957620)
 ,p_plugin_type=>'WEB SOURCE TYPE'
 ,p_plugin=>'NATIVE_BOSS'
-,p_version_scn=>44672575481907
-);
-wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(14125607845188766)
-,p_plugin_type=>'ITEM TYPE'
-,p_plugin=>'NATIVE_SELECT_MANY'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'display_values_as', 'separated')).to_clob
-,p_version_scn=>41756816866223
-);
-wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(14126373883188766)
-,p_plugin_type=>'DYNAMIC ACTION'
-,p_plugin=>'NATIVE_OPEN_AI_ASSISTANT'
-,p_version_scn=>41756816866246
-);
-wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(14126601869188767)
-,p_plugin_type=>'PROCESS TYPE'
-,p_plugin=>'NATIVE_GEOCODING'
-,p_attribute_01=>'RELAX_HOUSE_NUMBER'
-,p_version_scn=>41756816866261
+,p_version_scn=>44672576399092
 );
 wwv_flow_imp_shared.create_plugin_setting(
  p_id=>wwv_flow_imp.id(17596924985985916)
 ,p_plugin_type=>'WEB SOURCE TYPE'
 ,p_plugin=>'NATIVE_ADFBC'
 ,p_version_scn=>38915359997144
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(20377978775117252)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_SELECT_MANY'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_values_as', 'separated')).to_clob
+,p_version_scn=>41802098089179
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(20378440624117252)
+,p_plugin_type=>'DYNAMIC ACTION'
+,p_plugin=>'NATIVE_OPEN_AI_ASSISTANT'
+,p_version_scn=>41802098089204
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(20378813736117252)
+,p_plugin_type=>'PROCESS TYPE'
+,p_plugin=>'NATIVE_GEOCODING'
+,p_attribute_01=>'RELAX_HOUSE_NUMBER'
+,p_version_scn=>41802098089222
 );
 wwv_flow_imp_shared.create_plugin_setting(
  p_id=>wwv_flow_imp.id(52135066558936083)
@@ -3180,7 +3181,7 @@ wwv_flow_imp_shared.create_security_scheme(
 ,p_scheme_type=>'NATIVE_FUNCTION_BODY'
 ,p_attribute_01=>'return true;'
 ,p_error_message=>'Insufficient privileges, user is not an Administrator'
-,p_version_scn=>41756816870270
+,p_version_scn=>41802098095485
 ,p_caching=>'BY_USER_BY_PAGE_VIEW'
 );
 end;
@@ -3445,7 +3446,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'NAME_AR'
 ,p_default_sort_column_name=>'NAME_AR'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816870767
+,p_version_scn=>41802098096144
 );
 end;
 /
@@ -3461,7 +3462,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'PERSONAL_NAME'
 ,p_default_sort_column_name=>'PERSONAL_NAME'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816870797
+,p_version_scn=>41802098096173
 );
 end;
 /
@@ -3481,7 +3482,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816870847
+,p_version_scn=>41802098096203
 );
 end;
 /
@@ -3504,7 +3505,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816870874
+,p_version_scn=>41802098096234
 );
 end;
 /
@@ -3525,7 +3526,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816870895
+,p_version_scn=>41802098096281
 );
 end;
 /
@@ -3543,7 +3544,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816870916
+,p_version_scn=>41802098096312
 );
 end;
 /
@@ -3554,7 +3555,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_lov_name=>'CAR_DOCUMENT'
 ,p_lov_query=>'.'||wwv_flow_imp.id(58460311583399431)||'.'
 ,p_location=>'STATIC'
-,p_version_scn=>41756816870955
+,p_version_scn=>41802098096358
 );
 wwv_flow_imp_shared.create_static_lov_data(
  p_id=>wwv_flow_imp.id(58460649061399434)
@@ -3577,7 +3578,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_lov_name=>'CAR_INSPECTION'
 ,p_lov_query=>'.'||wwv_flow_imp.id(58461701427399440)||'.'
 ,p_location=>'STATIC'
-,p_version_scn=>41756816871158
+,p_version_scn=>41802098096402
 );
 wwv_flow_imp_shared.create_static_lov_data(
  p_id=>wwv_flow_imp.id(58462099780399440)
@@ -3610,7 +3611,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_column_name=>'R'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816871179
+,p_version_scn=>41802098096437
 );
 end;
 /
@@ -3630,7 +3631,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871208
+,p_version_scn=>41802098096466
 );
 end;
 /
@@ -3648,7 +3649,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871229
+,p_version_scn=>41802098096496
 );
 end;
 /
@@ -3664,7 +3665,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'NAME_AR'
 ,p_default_sort_column_name=>'NAME_AR'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816871255
+,p_version_scn=>41802098096523
 );
 end;
 /
@@ -3684,7 +3685,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871282
+,p_version_scn=>41802098096542
 );
 end;
 /
@@ -3702,7 +3703,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871307
+,p_version_scn=>41802098096573
 );
 end;
 /
@@ -3720,7 +3721,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871336
+,p_version_scn=>41802098096600
 );
 end;
 /
@@ -3740,7 +3741,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871360
+,p_version_scn=>41802098096629
 );
 end;
 /
@@ -3760,7 +3761,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871375
+,p_version_scn=>41802098096654
 );
 end;
 /
@@ -3779,7 +3780,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871404
+,p_version_scn=>41802098096692
 );
 end;
 /
@@ -3799,7 +3800,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871446
+,p_version_scn=>41802098096737
 );
 end;
 /
@@ -3817,7 +3818,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816871467
+,p_version_scn=>41802098096765
 );
 end;
 /
@@ -3837,7 +3838,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871495
+,p_version_scn=>41802098096799
 );
 end;
 /
@@ -3857,7 +3858,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871524
+,p_version_scn=>41802098096834
 );
 end;
 /
@@ -3877,7 +3878,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871570
+,p_version_scn=>41802098096883
 );
 end;
 /
@@ -3895,7 +3896,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871604
+,p_version_scn=>41802098096905
 );
 end;
 /
@@ -3915,7 +3916,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871629
+,p_version_scn=>41802098096932
 );
 end;
 /
@@ -3933,7 +3934,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871655
+,p_version_scn=>41802098096967
 );
 end;
 /
@@ -3953,7 +3954,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871688
+,p_version_scn=>41802098096987
 );
 end;
 /
@@ -3973,7 +3974,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871724
+,p_version_scn=>41802098097017
 );
 end;
 /
@@ -3993,7 +3994,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871747
+,p_version_scn=>41802098097052
 );
 end;
 /
@@ -4013,7 +4014,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871779
+,p_version_scn=>41802098097078
 );
 end;
 /
@@ -4033,7 +4034,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871817
+,p_version_scn=>41802098097104
 );
 end;
 /
@@ -4053,7 +4054,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871849
+,p_version_scn=>41802098097140
 );
 end;
 /
@@ -4072,7 +4073,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816871871
+,p_version_scn=>41802098097171
 );
 end;
 /
@@ -4090,7 +4091,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871899
+,p_version_scn=>41802098097192
 );
 end;
 /
@@ -4106,7 +4107,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'NAME_AR'
 ,p_default_sort_column_name=>'NAME_AR'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816871917
+,p_version_scn=>41802098097217
 );
 end;
 /
@@ -4126,7 +4127,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871942
+,p_version_scn=>41802098097254
 );
 end;
 /
@@ -4148,7 +4149,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816871958
+,p_version_scn=>41802098097286
 );
 end;
 /
@@ -4168,7 +4169,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816871975
+,p_version_scn=>41802098097323
 );
 end;
 /
@@ -4189,7 +4190,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816872010
+,p_version_scn=>41802098097353
 );
 end;
 /
@@ -4210,7 +4211,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_column_name=>'R'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816872025
+,p_version_scn=>41802098097389
 );
 end;
 /
@@ -4230,7 +4231,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816872051
+,p_version_scn=>41802098097432
 );
 end;
 /
@@ -4251,7 +4252,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816872074
+,p_version_scn=>41802098097468
 );
 end;
 /
@@ -4271,7 +4272,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816872107
+,p_version_scn=>41802098097514
 );
 end;
 /
@@ -4291,7 +4292,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756816872147
+,p_version_scn=>41802098097540
 );
 end;
 /
@@ -4312,7 +4313,7 @@ unistr('SELECT DECODE(NVL(:P_LANG, ''ar''), ''en'', ''No'', ''\0644\0627'') AS D
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756816872162
+,p_version_scn=>41802098097576
 );
 end;
 /
@@ -18423,7 +18424,7 @@ wwv_flow_imp_shared.create_authentication(
 ,p_invalid_session_type=>'LOGIN'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
-,p_version_scn=>41756816890855
+,p_version_scn=>41802098109441
 );
 end;
 /
@@ -18449,7 +18450,7 @@ wwv_flow_imp_shared.create_authentication(
 ,p_invalid_session_type=>'LOGIN'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
-,p_version_scn=>41756816890913
+,p_version_scn=>41802098109489
 );
 end;
 /
@@ -21811,7 +21812,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'ajax_request'
 ,p_validation_function=>'validate_item'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756816896700
+,p_version_scn=>41802098116074
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
 ,p_about_url=>'https://github.com/angooti/Apex-Captcha'
@@ -23871,7 +23872,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'ajax'
 ,p_standard_attributes=>'VISIBLE:SESSION_STATE:READONLY:QUICKPICK:SOURCE:ELEMENT:WIDTH:ELEMENT_OPTION:ENCRYPT:LOV:CASCADING_LOV'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756816901553
+,p_version_scn=>41802098130894
 ,p_subscribe_plugin_settings=>false
 ,p_version_identifier=>'1.5.1'
 ,p_plugin_comment=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -24427,7 +24428,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'ajax'
 ,p_standard_attributes=>'WAIT_FOR_RESULT'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756816902263
+,p_version_scn=>41802098131917
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
 ,p_files_version=>9
@@ -26017,19 +26018,13 @@ wwv_flow_imp_page.create_page_process(
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P9 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
 '    UPDATE SELLERS',
 '       SET AVATAR_URL = l_request_url',
@@ -26077,19 +26072,13 @@ wwv_flow_imp_page.create_page_process(
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P9 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
 '    UPDATE SELLERS',
 '       SET WALL_PAPER_URL = l_request_url',
@@ -26235,19 +26224,13 @@ unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P9 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
 '    :P9_BANK_CARD_URL := l_request_url;',
 'END;'))
@@ -26330,23 +26313,13 @@ unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',',
-'                                   p_PROCESS_NAME => ''OCI_OS.put_object_P9 - App: ''||:APP_ID,',
-'                                   p_ERROR_CODE => -2,',
-'                                   p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
-'                                   p_logger_name => :APP_USER);',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
 '    :P9_REPORT_URL := l_request_url;',
 'END;'))
@@ -29176,24 +29149,13 @@ unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS ( p_error_type    => ''SYSTEM_ERROR'',',
-'                                             p_process_name  => ''OCI_OS.put_object_P10 - App: '' || :APP_ID,',
-'                                             p_error_code    => -2,',
-'                                             p_error_message => SUBSTR(l_result, 1, 4000),',
-'                                             p_logger_name   => :APP_USER',
-'                                        );',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
 '    :P10_MAIN_IMAGE_URL := l_request_url;',
 'END;'))
@@ -29236,24 +29198,13 @@ unistr('    --     RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\
 '                                || DBMS_RANDOM.STRING(''x'', 8)',
 '                                || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'            l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
+'            l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'            l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                            p_url                  => l_request_url,',
-'                            p_http_method          => ''PUT'',',
-'                            p_body_blob            => l_file.BLOB_CONTENT,',
-'                            p_credential_static_id => ''OCI_AUTH''',
-'                        );',
-'',
-'            IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'                SYSTEM_CONTROLS.ERROR_LOGS ( p_error_type    => ''SYSTEM_ERROR'',',
-'                                             p_process_name  => ''OCI_OS.put_object_P10 - App: '' || :APP_ID,',
-'                                             p_error_code    => -2,',
-'                                             p_error_message => SUBSTR(l_result, 1, 4000),',
-'                                             p_logger_name   => :APP_USER',
-'                                        );',
-'                RAISE_APPLICATION_ERROR(-20002, ''Error with uploading Data!'');',
-'            END IF;',
+'            DBMS_CLOUD.put_object (',
+'                credential_name => :CREDENTIAL_NAME,',
+'                object_uri      => l_request_url,',
+'                contents        => l_file.blob_content',
+'            );',
 '',
 '            INSERT INTO PRODUCT_IMAGES ( PRODUCT_ID, URL, FILE_NAME, MIME_TYPE, SEQ )',
 '                VALUES ( PRODUCTS_SEQ.nextval, l_request_url, l_file.FILENAME, l_file.MIME_TYPE, i );',
@@ -29272,24 +29223,13 @@ unistr('                RAISE_APPLICATION_ERROR(-20003, ''\062E\0637\0623 \0641\
 '                            || DBMS_RANDOM.STRING(''x'', 8)',
 '                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'        l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'        ',
-'        l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                        p_url                  => l_request_url,',
-'                        p_http_method          => ''PUT'',',
-'                        p_body_blob            => l_file.BLOB_CONTENT,',
-'                        p_credential_static_id => ''OCI_AUTH''',
-'                    );',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'        IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'            SYSTEM_CONTROLS.ERROR_LOGS ( p_error_type    => ''SYSTEM_ERROR'',',
-'                                             p_process_name  => ''OCI_OS.put_object_P10 - App: '' || :APP_ID,',
-'                                             p_error_code    => -2,',
-'                                             p_error_message => SUBSTR(l_result, 1, 4000),',
-'                                             p_logger_name   => :APP_USER',
-'                                        );',
-'            RAISE_APPLICATION_ERROR(-20004, ''Error with uploading Data!'');',
-'        END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => l_file.blob_content',
+'        );',
 '',
 '        :P10_MAIN_IMAGE_URL := l_request_url;',
 '    END IF;',
@@ -29333,19 +29273,13 @@ unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'        l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P10 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'        DBMS_CLOUD.put_object (',
+'            credential_name => :CREDENTIAL_NAME,',
+'            object_uri      => l_request_url,',
+'            contents        => l_file.blob_content',
+'        );',
 '',
 '    :P10_DOCUMENT_URL := l_request_url;',
 'END;'))
@@ -29389,19 +29323,13 @@ unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P10 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
 '    :P10_INSPECTION_URL := l_request_url;',
 'END;'))
@@ -29445,19 +29373,13 @@ unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P10 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
 '    :P10_DROWING_FILE_URL := l_request_url;',
 'END;'))
@@ -29501,19 +29423,13 @@ unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P10 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
 '    :P10_BURN_FILE_URL := l_request_url;',
 'END;'))
@@ -29557,19 +29473,13 @@ unistr('        RAISE_APPLICATION_ERROR(-20001, ''\064A\062C\0628 \0639\0644\064
 '                        || DBMS_RANDOM.STRING(''x'', 8)',
 '                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'    l_request_url := :G_OCI_BASE_URL||''/b/sellers/o/''||l_file_name;',
-'    ',
-'    l_result := APEX_WEB_SERVICE.make_rest_request (',
-'                    p_url                  => l_request_url,',
-'                    p_http_method          => ''PUT'',',
-'                    p_body_blob            => l_file.BLOB_CONTENT,',
-'                    p_credential_static_id => ''OCI_AUTH''',
-'                );',
+'    l_request_url := :LOCATION_URI || l_file_name;',
 '',
-'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
-'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P10 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
-'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
-'    END IF;',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
 '',
 '    :P10_ACCIDENT_FILE_URL := l_request_url;',
 'END;'))
@@ -31845,13 +31755,19 @@ wwv_flow_imp_page.create_page_process(
 '                                || DBMS_RANDOM.STRING(''x'', 8)',
 '                                || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'            l_request_url := :LOCATION_URI || l_file_name;',
+'            l_request_url := :G_OCI_BASE_URL||''/b/''||:P997_BUCKET_NAME||''/o/'' || l_file_name; --APEX_UTIL.url_encode(l_file.FILENAME);',
 '',
-'            DBMS_CLOUD.put_object (',
-'                credential_name => :CREDENTIAL_NAME,',
-'                object_uri      => l_request_url,',
-'                contents        => l_file.blob_content',
-'            );',
+'            l_result := APEX_WEB_SERVICE.make_rest_request (',
+'                            p_url                  => l_request_url,',
+'                            p_http_method          => ''PUT'',',
+'                            p_body_blob            => l_file.BLOB_CONTENT,',
+'                            p_credential_static_id => ''OCI_AUTH''',
+'                        );',
+'',
+'            IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
+'                SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object'',p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
+'                RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
+'            END IF;',
 '        END LOOP;',
 '    ELSE    ',
 '        SELECT *',
@@ -31863,13 +31779,19 @@ wwv_flow_imp_page.create_page_process(
 '                            || DBMS_RANDOM.STRING(''x'', 8)',
 '                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
 '',
-'        l_request_url := :LOCATION_URI || l_file_name;',
+'        l_request_url := :G_OCI_BASE_URL||''/b/''||:P997_BUCKET_NAME||''/o/'' || l_file_name; --APEX_UTIL.url_encode(l_file.FILENAME);',
+'        ',
+'        l_result := APEX_WEB_SERVICE.make_rest_request (',
+'                        p_url                  => l_request_url,',
+'                        p_http_method          => ''PUT'',',
+'                        p_body_blob            => l_file.BLOB_CONTENT,',
+'                        p_credential_static_id => ''OCI_AUTH''',
+'                    );',
 '',
-'        DBMS_CLOUD.put_object (',
-'            credential_name => :CREDENTIAL_NAME,',
-'            object_uri      => l_request_url,',
-'            contents        => l_file.blob_content',
-'        );',
+'        IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
+'            SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object'',p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
+'            RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
+'        END IF;',
 '    ',
 '        :P997_RETURNED_URL := l_request_url;',
 '    END IF;',
@@ -32208,12 +32130,15 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P9999_SELLER_ID,P9999_CONDITION,P9999_USERNAME'
 ,p_attribute_01=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'window.addEventListener("message", function (event) {',
-'    if (event.origin !== "https://sell.mobasher.sa") { // https://sell.mobasher.sa // https://demo.sell.mobasher.sa // http://localhost:3006',
+'    // if (event.origin !== "https://sell.mobasher.sa") { // https://sell.mobasher.sa // https://demo.sell.mobasher.sa // http://localhost:3006',
+'    if ((event.origin !== "https://stg.seller.mobasher.sa")){ // https://sell.mobasher.sa // https://demo.sell.mobasher.sa // http://localhost:3006',
+'        console.log(event.origin)',
 '        return;',
 '    }',
 '',
 '    var receivedData = event.data.data;',
 '    console.log("Received Data:", receivedData);',
+'    console.log("Received Data ID:", receivedData.id);',
 '',
 '    let session = { sessionId: apex.item( "APP_SESSION" ) }',
 '    console.log("Received Data:", session);',
