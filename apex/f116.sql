@@ -19,7 +19,7 @@ whenever sqlerror exit sql.sqlcode rollback
 begin
 wwv_flow_imp.import_begin (
  p_version_yyyy_mm_dd=>'2024.11.30'
-,p_release=>'24.2.5'
+,p_release=>'24.2.15'
 ,p_default_workspace_id=>8097545542331186
 ,p_default_application_id=>116
 ,p_default_id_offset=>14189607095325531
@@ -33,15 +33,15 @@ prompt APPLICATION 116 - Administration
 -- Application Export:
 --   Application:     116
 --   Name:            Administration
---   Exported By:     ADMIN
+--   Exported By:     M.SAWALHAH
 --   Flashback:       0
 --   Export Type:     Application Export
---     Pages:                     69
---       Items:                  511
+--     Pages:                     72
+--       Items:                  513
 --       Validations:             36
---       Processes:              115
+--       Processes:              122
 --       Regions:                324
---       Buttons:                106
+--       Buttons:                108
 --       Dynamic Actions:        161
 --     Shared Components:
 --       Logic:
@@ -75,7 +75,7 @@ prompt APPLICATION 116 - Administration
 --       Reports:
 --       E-Mail:
 --     Supporting Objects:  Included
---   Version:         24.2.5
+--   Version:         24.2.15
 --   Instance ID:     8097368019106270
 --
 
@@ -126,6 +126,10 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_02=>'https://objectstorage.me-jeddah-1.oraclecloud.com/n/axax2vam4edg'
 ,p_substitution_string_03=>'G_OCI_WEB_CREDENTIAL'
 ,p_substitution_value_03=>'OCI_AUTH'
+,p_substitution_string_04=>'CREDENTIAL_NAME'
+,p_substitution_value_04=>'OBJ_STORE_CRED'
+,p_substitution_string_05=>'LOCATION_URI'
+,p_substitution_value_05=>'https://objectstorage.me-jeddah-1.oraclecloud.com/n/axxyvf3in2t6/b/demo/o/'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>18
 ,p_print_server_type=>'NATIVE'
@@ -173,7 +177,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(29301729635267077)
 ,p_name=>'Seller List to assign '
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857617657
+,p_version_scn=>41802062572217
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(29301882172267081)
@@ -189,7 +193,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(29547014940519023)
 ,p_name=>'Individual Auctions actions'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857617671
+,p_version_scn=>41802062572238
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(29547168051519024)
@@ -211,7 +215,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(50343117095154510)
 ,p_name=>'Individual Auctions actions1'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857617672
+,p_version_scn=>41802062572264
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(50343353163154512)
@@ -233,7 +237,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(50344459846154515)
 ,p_name=>'Individual product Status1'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857617676
+,p_version_scn=>41802062572309
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(50344802478154515)
@@ -267,7 +271,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(65056852007074639)
 ,p_name=>'edit list'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857617691
+,p_version_scn=>41802062572335
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(65057364291074651)
@@ -296,7 +300,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(65289398788241361)
 ,p_name=>'Seller edit list'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857617708
+,p_version_scn=>41802062572372
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(65289555335241362)
@@ -320,7 +324,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(66257110220015289)
 ,p_name=>'Individual product Status'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857617733
+,p_version_scn=>41802062572394
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(66257233047015292)
@@ -354,7 +358,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(86193652737821502)
 ,p_name=>'Navigation Menu'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857617899
+,p_version_scn=>41802062572639
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(86488119379821744)
@@ -709,7 +713,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(86477508032821710)
 ,p_name=>'Navigation Bar'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41756857618017
+,p_version_scn=>41802062572752
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(88933796537096622)
@@ -3635,37 +3639,37 @@ end;
 prompt --application/plugin_settings
 begin
 wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(1458564550948381)
+ p_id=>wwv_flow_imp.id(1459375110957620)
 ,p_plugin_type=>'WEB SOURCE TYPE'
 ,p_plugin=>'NATIVE_BOSS'
-,p_version_scn=>44672575481914
-);
-wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(14189921283325535)
-,p_plugin_type=>'ITEM TYPE'
-,p_plugin=>'NATIVE_SELECT_MANY'
-,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
-  'display_values_as', 'separated')).to_clob
-,p_version_scn=>41756857617635
-);
-wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(14190583123325536)
-,p_plugin_type=>'DYNAMIC ACTION'
-,p_plugin=>'NATIVE_OPEN_AI_ASSISTANT'
-,p_version_scn=>41756857617641
-);
-wwv_flow_imp_shared.create_plugin_setting(
- p_id=>wwv_flow_imp.id(14190897245325536)
-,p_plugin_type=>'PROCESS TYPE'
-,p_plugin=>'NATIVE_GEOCODING'
-,p_attribute_01=>'RELAX_HOUSE_NUMBER'
-,p_version_scn=>41756857617644
+,p_version_scn=>44672576399120
 );
 wwv_flow_imp_shared.create_plugin_setting(
  p_id=>wwv_flow_imp.id(17674997799160078)
 ,p_plugin_type=>'WEB SOURCE TYPE'
 ,p_plugin=>'NATIVE_ADFBC'
 ,p_version_scn=>38915359997147
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(20301863381981240)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_SELECT_MANY'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_values_as', 'separated')).to_clob
+,p_version_scn=>41802062571941
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(20302416247981241)
+,p_plugin_type=>'DYNAMIC ACTION'
+,p_plugin=>'NATIVE_OPEN_AI_ASSISTANT'
+,p_version_scn=>41802062571984
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(20302734001981241)
+,p_plugin_type=>'PROCESS TYPE'
+,p_plugin=>'NATIVE_GEOCODING'
+,p_attribute_01=>'RELAX_HOUSE_NUMBER'
+,p_version_scn=>41802062571999
 );
 wwv_flow_imp_shared.create_plugin_setting(
  p_id=>wwv_flow_imp.id(34154992915859132)
@@ -3809,7 +3813,7 @@ wwv_flow_imp_shared.create_security_scheme(
 ,p_scheme_type=>'NATIVE_FUNCTION_BODY'
 ,p_attribute_01=>'return true;'
 ,p_error_message=>'Insufficient privileges, user is not an Administrator'
-,p_version_scn=>41756857621140
+,p_version_scn=>41802062578096
 ,p_caching=>'BY_USER_BY_PAGE_VIEW'
 );
 end;
@@ -3984,7 +3988,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857621755
+,p_version_scn=>41802062578341
 );
 end;
 /
@@ -4002,7 +4006,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857621797
+,p_version_scn=>41802062578368
 );
 end;
 /
@@ -4022,7 +4026,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857621829
+,p_version_scn=>41802062578382
 );
 end;
 /
@@ -4042,7 +4046,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857621864
+,p_version_scn=>41802062578397
 );
 end;
 /
@@ -4062,7 +4066,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857621887
+,p_version_scn=>41802062578426
 );
 end;
 /
@@ -4081,7 +4085,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857621916
+,p_version_scn=>41802062578441
 );
 end;
 /
@@ -4099,7 +4103,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_column_name=>'PERSONAL_NAME'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857621935
+,p_version_scn=>41802062578465
 );
 end;
 /
@@ -4122,7 +4126,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857621965
+,p_version_scn=>41802062578495
 );
 end;
 /
@@ -4140,7 +4144,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857621983
+,p_version_scn=>41802062578515
 );
 end;
 /
@@ -4160,7 +4164,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622007
+,p_version_scn=>41802062578533
 );
 end;
 /
@@ -4183,7 +4187,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622032
+,p_version_scn=>41802062578569
 );
 end;
 /
@@ -4206,7 +4210,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622048
+,p_version_scn=>41802062578591
 );
 end;
 /
@@ -4229,7 +4233,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622058
+,p_version_scn=>41802062578610
 );
 end;
 /
@@ -4247,7 +4251,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622080
+,p_version_scn=>41802062578646
 );
 end;
 /
@@ -4267,7 +4271,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622107
+,p_version_scn=>41802062578676
 );
 end;
 /
@@ -4285,7 +4289,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622129
+,p_version_scn=>41802062578696
 );
 end;
 /
@@ -4305,7 +4309,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622138
+,p_version_scn=>41802062578721
 );
 end;
 /
@@ -4327,7 +4331,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_column_name=>'R'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622156
+,p_version_scn=>41802062578744
 );
 end;
 /
@@ -4347,7 +4351,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622178
+,p_version_scn=>41802062578763
 );
 end;
 /
@@ -4368,7 +4372,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622190
+,p_version_scn=>41802062578793
 );
 end;
 /
@@ -4391,7 +4395,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622198
+,p_version_scn=>41802062578812
 );
 end;
 /
@@ -4409,7 +4413,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622207
+,p_version_scn=>41802062578827
 );
 end;
 /
@@ -4427,7 +4431,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622233
+,p_version_scn=>41802062578853
 );
 end;
 /
@@ -4447,7 +4451,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622259
+,p_version_scn=>41802062578886
 );
 end;
 /
@@ -4458,7 +4462,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_lov_name=>'EVALUATION'
 ,p_lov_query=>'.'||wwv_flow_imp.id(66191829400609331)||'.'
 ,p_location=>'STATIC'
-,p_version_scn=>41756857622277
+,p_version_scn=>41802062578916
 );
 wwv_flow_imp_shared.create_static_lov_data(
  p_id=>wwv_flow_imp.id(66192085423609342)
@@ -4493,7 +4497,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622312
+,p_version_scn=>41802062578950
 );
 end;
 /
@@ -4516,7 +4520,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622339
+,p_version_scn=>41802062578969
 );
 end;
 /
@@ -4536,7 +4540,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622352
+,p_version_scn=>41802062579013
 );
 end;
 /
@@ -4555,7 +4559,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622363
+,p_version_scn=>41802062579067
 );
 end;
 /
@@ -4574,7 +4578,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622376
+,p_version_scn=>41802062579122
 );
 end;
 /
@@ -4593,7 +4597,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622389
+,p_version_scn=>41802062579156
 );
 end;
 /
@@ -4616,7 +4620,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622406
+,p_version_scn=>41802062579180
 );
 end;
 /
@@ -4639,7 +4643,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622421
+,p_version_scn=>41802062579203
 );
 end;
 /
@@ -4662,7 +4666,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622432
+,p_version_scn=>41802062579265
 );
 end;
 /
@@ -4682,7 +4686,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622446
+,p_version_scn=>41802062579307
 );
 end;
 /
@@ -4702,7 +4706,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622468
+,p_version_scn=>41802062579331
 );
 end;
 /
@@ -4721,7 +4725,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622476
+,p_version_scn=>41802062579361
 );
 end;
 /
@@ -4739,7 +4743,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622492
+,p_version_scn=>41802062579389
 );
 end;
 /
@@ -4762,7 +4766,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622511
+,p_version_scn=>41802062579404
 );
 end;
 /
@@ -4782,7 +4786,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622530
+,p_version_scn=>41802062579430
 );
 end;
 /
@@ -4803,7 +4807,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622547
+,p_version_scn=>41802062579446
 );
 end;
 /
@@ -4819,7 +4823,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'NAME_AR'
 ,p_default_sort_column_name=>'NAME_AR'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622551
+,p_version_scn=>41802062579464
 );
 end;
 /
@@ -4842,7 +4846,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622565
+,p_version_scn=>41802062579496
 );
 end;
 /
@@ -4860,7 +4864,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622582
+,p_version_scn=>41802062579514
 );
 end;
 /
@@ -4880,7 +4884,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622591
+,p_version_scn=>41802062579544
 );
 end;
 /
@@ -4900,7 +4904,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622610
+,p_version_scn=>41802062579568
 );
 end;
 /
@@ -4923,7 +4927,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622616
+,p_version_scn=>41802062579599
 );
 end;
 /
@@ -4943,7 +4947,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622618
+,p_version_scn=>41802062579629
 );
 end;
 /
@@ -4966,7 +4970,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622631
+,p_version_scn=>41802062579665
 );
 end;
 /
@@ -4986,7 +4990,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622635
+,p_version_scn=>41802062579684
 );
 end;
 /
@@ -5006,7 +5010,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622655
+,p_version_scn=>41802062579702
 );
 end;
 /
@@ -5026,7 +5030,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622671
+,p_version_scn=>41802062579728
 );
 end;
 /
@@ -5046,7 +5050,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622688
+,p_version_scn=>41802062579741
 );
 end;
 /
@@ -5064,7 +5068,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622712
+,p_version_scn=>41802062579764
 );
 end;
 /
@@ -5080,7 +5084,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'NAME_AR'
 ,p_default_sort_column_name=>'NAME_AR'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622723
+,p_version_scn=>41802062579774
 );
 end;
 /
@@ -5099,7 +5103,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'NAME'
 ,p_default_sort_column_name=>'NAME'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622731
+,p_version_scn=>41802062579803
 );
 end;
 /
@@ -5119,7 +5123,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622756
+,p_version_scn=>41802062579819
 );
 end;
 /
@@ -5139,7 +5143,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622773
+,p_version_scn=>41802062579836
 );
 end;
 /
@@ -5161,7 +5165,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622787
+,p_version_scn=>41802062579872
 );
 end;
 /
@@ -5180,7 +5184,7 @@ unistr('SELECT DECODE(:P_LANG, ''ar'', ''\063A\064A\0631 \0645\0641\0639\0644'',
 ,p_display_column_name=>'D'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622799
+,p_version_scn=>41802062579884
 );
 end;
 /
@@ -5204,7 +5208,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622822
+,p_version_scn=>41802062579905
 );
 end;
 /
@@ -5227,7 +5231,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622834
+,p_version_scn=>41802062579928
 );
 end;
 /
@@ -5249,7 +5253,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622849
+,p_version_scn=>41802062579954
 );
 end;
 /
@@ -5272,7 +5276,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622862
+,p_version_scn=>41802062579966
 );
 end;
 /
@@ -5292,7 +5296,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_location=>'LOCAL'
 ,p_return_column_name=>'R'
 ,p_display_column_name=>'D'
-,p_version_scn=>41756857622867
+,p_version_scn=>41802062579982
 );
 end;
 /
@@ -5315,7 +5319,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622879
+,p_version_scn=>41802062580001
 );
 end;
 /
@@ -5338,7 +5342,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622890
+,p_version_scn=>41802062580022
 );
 end;
 /
@@ -5361,7 +5365,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622900
+,p_version_scn=>41802062580055
 );
 end;
 /
@@ -5384,7 +5388,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622908
+,p_version_scn=>41802062580084
 );
 end;
 /
@@ -5407,7 +5411,7 @@ wwv_flow_imp_shared.create_list_of_values(
 ,p_display_column_name=>'D'
 ,p_group_sort_direction=>'ASC'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622923
+,p_version_scn=>41802062580111
 );
 end;
 /
@@ -5426,7 +5430,7 @@ unistr('SELECT DECODE(:P_LANG, ''ar'', ''\0644\0627'', ''No'') AS D, 0 AS R FROM
 ,p_display_column_name=>'D'
 ,p_default_sort_column_name=>'D'
 ,p_default_sort_direction=>'ASC'
-,p_version_scn=>41756857622933
+,p_version_scn=>41802062580128
 );
 end;
 /
@@ -21138,7 +21142,7 @@ wwv_flow_imp_shared.create_authentication(
 ,p_scheme_type=>'NATIVE_OPEN_DOOR'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
-,p_version_scn=>41756857682512
+,p_version_scn=>41802062668341
 );
 end;
 /
@@ -21165,7 +21169,7 @@ wwv_flow_imp_shared.create_authentication(
 ,p_invalid_session_type=>'LOGIN'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
-,p_version_scn=>41756857682551
+,p_version_scn=>41802062668376
 );
 end;
 /
@@ -24767,7 +24771,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_api_version=>1
 ,p_execution_function=>'parse_excel'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857686376
+,p_version_scn=>41802062672479
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'0.906'
 ,p_plugin_comment=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -25218,7 +25222,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'ajax_request'
 ,p_validation_function=>'validate_item'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857686564
+,p_version_scn=>41802062672936
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
 ,p_about_url=>'https://github.com/angooti/Apex-Captcha'
@@ -27698,7 +27702,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_render_function=>'render_dropzone'
 ,p_ajax_function=>'ajax_dropzone'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857693772
+,p_version_scn=>41802062681622
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>unistr('Dropzone is a region type plugin that allows you to provide nice looking drag\2019n\2019drop file uploads. It is based on JS Framework dropzone.js.')
 ,p_version_identifier=>'2.4.1'
@@ -35656,7 +35660,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_api_version=>1
 ,p_render_function=>'f_refresh'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857706404
+,p_version_scn=>41802062699205
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>'Plugin that reload classic or interactive report region after certain time.'
 ,p_version_identifier=>'1.0.0'
@@ -35703,7 +35707,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_api_version=>1
 ,p_execution_function=>'aop_api_pkg.f_process_aop'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857707147
+,p_version_scn=>41802062700009
 ,p_subscribe_plugin_settings=>false
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'APEX Office Print (AOP) is created by United Codes to facilitate exporting data and printing documents in Oracle Application Express (APEX) based on an Office document (Word, Excel, PowerPoint) or HTML, Markdown, CSV, or Text. This plugin can only be'
@@ -37357,7 +37361,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'aop_modal_pkg.ajax'
 ,p_standard_attributes=>'REGION:JQUERY_SELECTOR:INIT_JAVASCRIPT_CODE'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857708185
+,p_version_scn=>41802062701523
 ,p_subscribe_plugin_settings=>false
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'APEX Office Print (AOP) is created by United Codes to facilitate exporting data and printing documents in Oracle Application Express (APEX) based on an Office document (Word, Excel, Powerpoint) or HTML, Markdown, CSV, or Text. This plugin can only be'
@@ -40148,7 +40152,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'aop_api_pkg.f_ajax_aop'
 ,p_standard_attributes=>'ITEM:STOP_EXECUTION_ON_ERROR:WAIT_FOR_RESULT:INIT_JAVASCRIPT_CODE'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857710832
+,p_version_scn=>41802062712647
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'APEX Office Print (AOP) is created by United Codes to facilitate exporting data and printing documents in Oracle Application Express (APEX) based on an Office document (Word, Excel, PowerPoint) or HTML, Markdown, CSV, or Text. This plugin can only be'
@@ -44512,7 +44516,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'aop_convert_pkg.f_ajax_aop'
 ,p_standard_attributes=>'ITEM:STOP_EXECUTION_ON_ERROR:WAIT_FOR_RESULT:INIT_JAVASCRIPT_CODE'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857715485
+,p_version_scn=>41802062738193
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'APEX Office Print (AOP) is created by United Codes to facilitate exporting data and printing documents in Oracle Application Express (APEX) based on an Office document (Word, Excel, PowerPoint) or HTML, Markdown, CSV, or Text. This plugin can only be'
@@ -45679,7 +45683,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_api_version=>2
 ,p_render_function=>'render_dynamic_action'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857717587
+,p_version_scn=>41802062740595
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'0.5'
 ,p_about_url=>'https://github.com/rhinterndorfer/APEX-Client-Side-PDF'
@@ -52817,7 +52821,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_ajax_function=>'ajax'
 ,p_standard_attributes=>'WAIT_FOR_RESULT'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857724491
+,p_version_scn=>41802062747521
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
 ,p_files_version=>9
@@ -53042,7 +53046,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_api_version=>2
 ,p_render_function=>'F_RENDER'
 ,p_substitute_attributes=>true
-,p_version_scn=>41756857724903
+,p_version_scn=>41802062748030
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>'This plug-in is used to set a dynamic modal dialog title on dialog render. Just add this Plug-in to a Dynamic Action that is fired on Page Load.'
 ,p_version_identifier=>'1.0'
@@ -53345,28 +53349,6 @@ unistr('       || '' )</b>'' || DECODE(NVL(:P_LANG, ''ar''), ''ar'', '' \0645\06
 ,p_threshold_display=>'onIndicator'
 );
 wwv_flow_imp_page.create_jet_chart_axis(
- p_id=>wwv_flow_imp.id(93387649611701830)
-,p_chart_id=>wwv_flow_imp.id(93387508391701828)
-,p_axis=>'x'
-,p_is_rendered=>'on'
-,p_format_scaling=>'auto'
-,p_scaling=>'linear'
-,p_baseline_scaling=>'zero'
-,p_major_tick_rendered=>'on'
-,p_minor_tick_rendered=>'off'
-,p_tick_label_rendered=>'on'
-,p_tick_label_rotation=>'auto'
-,p_tick_label_position=>'outside'
-,p_zoom_order_seconds=>false
-,p_zoom_order_minutes=>false
-,p_zoom_order_hours=>false
-,p_zoom_order_days=>false
-,p_zoom_order_weeks=>false
-,p_zoom_order_months=>false
-,p_zoom_order_quarters=>false
-,p_zoom_order_years=>false
-);
-wwv_flow_imp_page.create_jet_chart_axis(
  p_id=>wwv_flow_imp.id(93387749227701831)
 ,p_chart_id=>wwv_flow_imp.id(93387508391701828)
 ,p_axis=>'y'
@@ -53380,6 +53362,28 @@ wwv_flow_imp_page.create_jet_chart_axis(
 ,p_major_tick_rendered=>'on'
 ,p_minor_tick_rendered=>'off'
 ,p_tick_label_rendered=>'on'
+,p_zoom_order_seconds=>false
+,p_zoom_order_minutes=>false
+,p_zoom_order_hours=>false
+,p_zoom_order_days=>false
+,p_zoom_order_weeks=>false
+,p_zoom_order_months=>false
+,p_zoom_order_quarters=>false
+,p_zoom_order_years=>false
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(93387649611701830)
+,p_chart_id=>wwv_flow_imp.id(93387508391701828)
+,p_axis=>'x'
+,p_is_rendered=>'on'
+,p_format_scaling=>'auto'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_major_tick_rendered=>'on'
+,p_minor_tick_rendered=>'off'
+,p_tick_label_rendered=>'on'
+,p_tick_label_rotation=>'auto'
+,p_tick_label_position=>'outside'
 ,p_zoom_order_seconds=>false
 ,p_zoom_order_minutes=>false
 ,p_zoom_order_hours=>false
@@ -53467,6 +53471,28 @@ unistr('       || DECODE(NVL(:P_LANG, ''ar''), ''ar'', '' \0644\062F\0649 \0627\
 ,p_threshold_display=>'onIndicator'
 );
 wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(93388171317701835)
+,p_chart_id=>wwv_flow_imp.id(93387951059701833)
+,p_axis=>'x'
+,p_is_rendered=>'on'
+,p_format_scaling=>'auto'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_major_tick_rendered=>'on'
+,p_minor_tick_rendered=>'off'
+,p_tick_label_rendered=>'on'
+,p_tick_label_rotation=>'auto'
+,p_tick_label_position=>'outside'
+,p_zoom_order_seconds=>false
+,p_zoom_order_minutes=>false
+,p_zoom_order_hours=>false
+,p_zoom_order_days=>false
+,p_zoom_order_weeks=>false
+,p_zoom_order_months=>false
+,p_zoom_order_quarters=>false
+,p_zoom_order_years=>false
+);
+wwv_flow_imp_page.create_jet_chart_axis(
  p_id=>wwv_flow_imp.id(93388282076701836)
 ,p_chart_id=>wwv_flow_imp.id(93387951059701833)
 ,p_axis=>'y'
@@ -53480,28 +53506,6 @@ wwv_flow_imp_page.create_jet_chart_axis(
 ,p_major_tick_rendered=>'on'
 ,p_minor_tick_rendered=>'off'
 ,p_tick_label_rendered=>'on'
-,p_zoom_order_seconds=>false
-,p_zoom_order_minutes=>false
-,p_zoom_order_hours=>false
-,p_zoom_order_days=>false
-,p_zoom_order_weeks=>false
-,p_zoom_order_months=>false
-,p_zoom_order_quarters=>false
-,p_zoom_order_years=>false
-);
-wwv_flow_imp_page.create_jet_chart_axis(
- p_id=>wwv_flow_imp.id(93388171317701835)
-,p_chart_id=>wwv_flow_imp.id(93387951059701833)
-,p_axis=>'x'
-,p_is_rendered=>'on'
-,p_format_scaling=>'auto'
-,p_scaling=>'linear'
-,p_baseline_scaling=>'zero'
-,p_major_tick_rendered=>'on'
-,p_minor_tick_rendered=>'off'
-,p_tick_label_rendered=>'on'
-,p_tick_label_rotation=>'auto'
-,p_tick_label_position=>'outside'
 ,p_zoom_order_seconds=>false
 ,p_zoom_order_minutes=>false
 ,p_zoom_order_hours=>false
@@ -59006,12 +59010,11 @@ wwv_flow_imp_page.create_page_item(
 ' WHERE LINKED_LOOKUP_ID = LOOKUPS_MNT.lookup_id_by_code (p_lookup_code => ''national_type'')',
 '   AND NVL(IS_ACTIVE, 0) = 1',
 ' ORDER BY SEQ;'))
-,p_lov_display_null=>'YES'
 ,p_cHeight=>1
 ,p_field_template=>wwv_flow_imp.id(86367188900821603)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_lov_display_extra=>'YES'
+,p_lov_display_extra=>'NO'
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'page_action_on_selection', 'NONE')).to_clob
 );
@@ -92381,7 +92384,8 @@ wwv_flow_imp_page.create_page_plug(
 unistr('    DECODE (sellerCategory , ''REAL_ESTATES'', decode(:P_LANG,''ar'',''\0639\0642\0627\0631\0627\062A'' ,''REAL ESTATES''), '),
 unistr('                             ''VEHICLES'', decode(:P_LANG,''ar'',''\0645\0646\0642\0648\0644\0627\062A'' ,''VEHICLES''), '),
 unistr('                             ''ANIMALS'', decode(:P_LANG,''ar'',''\062D\064A\0648\0627\0646\0627\062A'' ,''ANIMALS''), '),
-'                             '''')sellerCategory,',
+'                             ''''',
+'    ) AS sellerCategory,',
 '     AuctionsNotpayed  ,',
 '    ProductsNotpayed ,',
 '    null chat,',
@@ -92403,7 +92407,7 @@ unistr('                             ''ANIMALS'', decode(:P_LANG,''ar'',''\062D\
 '            ELSE',
 '                auctionsno',
 '        END',
-'    ) * 100, 10) || '' % '' sale_percentage',
+'    ) * 100, 3) || '' % '' sale_percentage',
 'FROM',
 '    TABLE ( get_sellers_data )',
 'GROUP BY',
@@ -92452,7 +92456,7 @@ wwv_flow_imp_page.create_worksheet(
  p_id=>wwv_flow_imp.id(124871448002438728)
 ,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
 ,p_no_data_found_message=>'No data found.'
-,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_type=>'ROWS_X_TO_Y_OF_Z'
 ,p_pagination_display_pos=>'BOTTOM_RIGHT'
 ,p_report_list_mode=>'TABS'
 ,p_lazy_loading=>false
@@ -92480,7 +92484,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'Z'
 ,p_column_label=>'Seller Name'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92490,8 +92494,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'AA'
 ,p_column_label=>'Products'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92501,8 +92504,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'AB'
 ,p_column_label=>'Auctions'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92512,8 +92514,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'AC'
 ,p_column_label=>'Successful Products'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92523,8 +92524,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'AD'
 ,p_column_label=>'Pending Products'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92537,7 +92537,6 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_linktext=>'#MORE#'
 ,p_column_type=>'STRING'
 ,p_display_text_as=>'WITHOUT_MODIFICATION'
-,p_heading_alignment=>'LEFT'
 ,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
@@ -92551,7 +92550,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_linktext=>'#LASTAUCTIONCONTAINERDATE#'
 ,p_column_link_attr=>'class="t-Button t-Button--stretch u-bold #STATUS#" style="cursor: text;color:White; "'
 ,p_column_type=>'DATE'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_format_mask=>'SINCE'
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
@@ -92573,7 +92572,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'AJ'
 ,p_column_label=>'Seller Category'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92583,7 +92582,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'AK'
 ,p_column_label=>'Last Auction Date'
 ,p_column_type=>'DATE'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_format_mask=>'DD-MON-YYYY HH:MIPM'
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
@@ -92597,7 +92596,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_link=>'f?p=&APP_ID.:56:&SESSION.::&DEBUG.::P56_SELLER_ID,P56_SELLER_NAME:#ID#,#NAME#'
 ,p_column_linktext=>'<span aria-hidden="true" class="fa fa-users-chat fa-2x"></span>'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92607,8 +92606,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'AM'
 ,p_column_label=>'Auctions not payed'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92618,8 +92616,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'AN'
 ,p_column_label=>'Products not payed'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92629,7 +92626,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_identifier=>'AO'
 ,p_column_label=>'Sale Percentage'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -92641,7 +92638,6 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_link=>'f?p=&APP_ID.:10:&SESSION.::&DEBUG.::P10_SELLER_ID,P10_OPERATION:#ID#,contract'
 ,p_column_linktext=>'<span class="fa fa-clipboard-list" aria-hidden="true"></span>'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
 ,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
@@ -92654,7 +92650,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_column_link=>'f?p=&APP_ID.:60:&SESSION.::&DEBUG.:60:P60_SELLER_ID:#ID#'
 ,p_column_linktext=>'WALLET'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_rpt(
@@ -92664,6 +92660,7 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_report_alias=>'237020'
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
+,p_display_rows=>15
 ,p_report_columns=>'MORE:NAME:SELLERCATEGORY:AUCTIONSNO:CONTAINERSNO:SUCCESSFULAUCTIONSNO:PENDINGAUCTIONSNO:AUCTIONSNOTPAYED:PRODUCTSNOTPAYED:SALE_PERCENTAGE:LASTAUCTIONDATE:LASTAUCTIONCONTAINERDATE:CONTRACT:WALLET:CHAT:'
 ,p_sort_column_1=>'LASTAUCTIONCONTAINERDATE'
 ,p_sort_direction_1=>'DESC'
@@ -92898,8 +92895,7 @@ wwv_flow_imp_page.create_page(
 '   display:none !important;',
 '}'))
 ,p_page_template_options=>'#DEFAULT#'
-,p_dialog_height=>'700'
-,p_dialog_width=>'95%'
+,p_dialog_width=>'85%'
 ,p_dialog_chained=>'N'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'18'
@@ -93107,7 +93103,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -93137,8 +93133,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_format_mask=>'999G999G999G999G999G999G990'
 ,p_use_as_row_header=>'N'
 );
@@ -93159,8 +93154,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_format_mask=>'999G999G999G999G999G999G990'
 ,p_use_as_row_header=>'N'
 );
@@ -93181,7 +93175,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -93201,8 +93195,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -93222,8 +93215,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -93243,8 +93235,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -93311,8 +93302,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'NUMBER'
-,p_heading_alignment=>'RIGHT'
-,p_column_alignment=>'RIGHT'
+,p_column_alignment=>'CENTER'
 ,p_format_mask=>'999G999G999G999G990D00MI'
 ,p_use_as_row_header=>'N'
 );
@@ -93356,7 +93346,6 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_hide=>'N'
 ,p_column_type=>'STRING'
 ,p_display_text_as=>'WITHOUT_MODIFICATION'
-,p_heading_alignment=>'LEFT'
 ,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
@@ -93377,7 +93366,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -93397,7 +93386,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -93420,7 +93409,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_pivot=>'N'
 ,p_allow_hide=>'N'
 ,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
@@ -93451,7 +93440,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_allow_hide=>'N'
 ,p_column_type=>'STRING'
 ,p_display_text_as=>'WITHOUT_MODIFICATION'
-,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_rpt(
@@ -101097,6 +101086,20 @@ wwv_flow_imp_page.create_page_da_action(
 );
 end;
 /
+prompt --application/pages/page_00062
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>62
+,p_name=>'test dep'
+,p_alias=>'TEST-DEP'
+,p_step_title=>'test dep'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'11'
+);
+end;
+/
 prompt --application/pages/page_00063
 begin
 wwv_flow_imp_page.create_page(
@@ -102467,7 +102470,7 @@ wwv_flow_imp_page.create_page_plug(
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(93626124472132119)
-,p_plug_name=>'Lookups'
+,p_plug_name=>'Lookups '
 ,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--scrollBody'
 ,p_component_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_imp.id(86296507817821564)
@@ -103947,6 +103950,629 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_report_alias=>'171920'
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
+,p_report_columns=>'NAME:'
+);
+end;
+/
+prompt --application/pages/page_09945
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>9945
+,p_name=>'test upload'
+,p_alias=>'TEST-UPLOAD'
+,p_step_title=>'test upload'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'11'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(31965559451183734)
+,p_button_sequence=>20
+,p_button_name=>'upload'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(86369704070821606)
+,p_button_image_alt=>'Upload'
+,p_grid_new_row=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(31965474473183733)
+,p_name=>'P9945_UPLOAD_M'
+,p_item_sequence=>10
+,p_prompt=>'Upload M'
+,p_display_as=>'NATIVE_FILE'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(86367188900821603)
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'allow_multiple_files', 'N',
+  'display_as', 'DROPZONE_BLOCK',
+  'purge_file_at', 'SESSION',
+  'storage_type', 'APEX_APPLICATION_TEMP_FILES')).to_clob
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(31965674378183735)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'test m'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'    l_result        CLOB;',
+'    l_url           VARCHAR2(32767);',
+'    l_body          VARCHAR2(2000);',
+'    l_file          APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
+'    l_file_name     VARCHAR2(255);',
+'    l_request_url	VARCHAR2(32767);',
+'    buyer_object    json_object_t;',
+'    buyer_number    varchar2(255);',
+'    v_result        CLOB;',
+'    v_message       VARCHAR2(2000);',
+'BEGIN',
+'    SELECT *',
+'      INTO l_file',
+'      FROM APEX_APPLICATION_TEMP_FILES',
+'     WHERE NAME = :P9945_UPLOAD_M;',
+'',
+'    l_file_name := TO_CHAR(get_current_date, ''YY'') ',
+'                            || DBMS_RANDOM.STRING(''x'', 8)',
+'                            -- || ''.''|| l_file.MIME_TYPE;',
+'                            || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
+'',
+'    l_request_url := :LOCATION_URI || l_file_name;',
+'',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
+'',
+'    insert into emp (url) values (l_request_url );',
+'',
+unistr('    APEX_APPLICATION.g_print_success_message := ''\062A\0645\062A \0627\0644\0639\0645\0644\064A\0629 \0628\0646\062C\0627\062D'';'),
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>31965674378183735
+);
+end;
+/
+prompt --application/pages/page_09998
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>9998
+,p_name=>'upload_test'
+,p_alias=>'UPLOAD-TEST'
+,p_step_title=>'upload_test'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'11'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(49922934431197025)
+,p_button_sequence=>20
+,p_button_name=>'Save'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(86369704070821606)
+,p_button_image_alt=>'Save'
+,p_grid_new_row=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(49922851853197024)
+,p_name=>'P9998_FILE'
+,p_item_sequence=>10
+,p_prompt=>'File'
+,p_display_as=>'NATIVE_FILE'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(86367188900821603)
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'allow_multiple_files', 'N',
+  'display_as', 'DROPZONE_BLOCK',
+  'purge_file_at', 'SESSION',
+  'storage_type', 'APEX_APPLICATION_TEMP_FILES')).to_clob
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(49923007385197026)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Upload Files'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'-- DECLARE',
+'--     l_file_names        APEX_T_VARCHAR2;',
+'--     l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
+'--     l_file_name         VARCHAR2(255);',
+'--     l_request_url	    VARCHAR2(32767);',
+'--     l_result	        CLOB;',
+'--     -- l_blob_base64	        CLOB;',
+'--     l_request_filename	VARCHAR2(500);',
+'--     l_inner_folder  	VARCHAR2(500);',
+'-- BEGIN',
+'--     BEGIN',
+'--         SELECT *',
+'--         INTO l_file',
+'--         FROM APEX_APPLICATION_TEMP_FILES',
+'--         WHERE NAME = :P9998_FILE;',
+'--     EXCEPTION',
+'--         WHEN NO_DATA_FOUND THEN',
+'--             RAISE_APPLICATION_ERROR(-20001, ''No file found with the name: '' || :P9998_FILE);',
+'--     END;',
+'',
+'',
+'--     l_file_name := TO_CHAR(get_current_date, ''YY'') ',
+'--                         || DBMS_RANDOM.STRING(''x'', 8)',
+'--                         || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
+'',
+'--     apex_web_service.g_request_headers.delete();',
+'--     apex_web_service.g_request_headers(1).name := ''Content-Type'';',
+'--     apex_web_service.g_request_headers(1).value := l_file.MIME_TYPE; ',
+'',
+'--     l_request_url := :LOCATION_URI || l_file_name;',
+'',
+'--     -- RAISE_APPLICATION_ERROR(-20007, '': '' ||''extention: ''|| SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE) || '' MymTYpe : '' ||  l_file.MIME_TYPE );',
+'',
+'--     --',
+'--     -- IF l_file.BLOB_CONTENT IS NOT NULL THEN',
+'--     -- l_content := l_file.BLOB_CONTENT;',
+'--     --     RAISE_APPLICATION_ERROR(-20002, ''The BLOB content of the file is not null!'');',
+'--     -- END IF;',
+'--     -- RAISE_APPLICATION_ERROR(-20007, ''result: '' || l_result);',
+'',
+'--     -- l_blob_base64 := TO_CLOB(UTL_ENCODE.BASE64_ENCODE(l_file.BLOB_CONTENT));',
+'--     -- RAISE_APPLICATION_ERROR(-20007, ''blob: '' || SUBSTR(l_blob_base64, 1, 4000));',
+'',
+'',
+'--     -- RAISE_APPLICATION_ERROR(-20007, l_request_url);',
+'--     l_result := APEX_WEB_SERVICE.make_rest_request (',
+'--                     p_url                  => l_request_url,',
+'--                     p_http_method          => ''PUT'',',
+'--                     p_body_blob            => l_file.BLOB_CONTENT,',
+'--                     p_credential_static_id =>:CREDENTIAL_NAME',
+'--                     -- p_credential_static_id => ''OCI_AUTH''',
+'--                 );',
+'',
+'',
+'--     IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
+'--         SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P9 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
+'--         RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
+'--     END IF;',
+'',
+'--     -- RAISE_APPLICATION_ERROR(-20009, l_result);',
+'-- END;',
+'DECLARE',
+'    l_file             APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
+'    l_file_name        VARCHAR2(255);',
+'    l_request_url      VARCHAR2(32767);',
+'    l_result           CLOB;',
+'BEGIN',
+'    -- Debugging: Log the value of :P9998_FILE',
+'    DBMS_OUTPUT.PUT_LINE(''Looking for file: '' || :P9998_FILE);',
+'',
+'    -- Attempt to retrieve the uploaded file from APEX_APPLICATION_TEMP_FILES',
+'    BEGIN',
+'        SELECT *',
+'        INTO l_file',
+'        FROM APEX_APPLICATION_TEMP_FILES',
+'        WHERE NAME = :P9998_FILE;',
+'    EXCEPTION',
+'        WHEN NO_DATA_FOUND THEN',
+'            -- Log additional info if no data found',
+'            RAISE_APPLICATION_ERROR(-20001, ''No file found with the name: '' || :P9998_FILE || '' in APEX_APPLICATION_TEMP_FILES.'');',
+'        WHEN TOO_MANY_ROWS THEN',
+'            RAISE_APPLICATION_ERROR(-20002, ''Too many rows returned for the file name: '' || :P9998_FILE);',
+'    END;',
+'',
+'    -- Log file details for further debugging',
+'    DBMS_OUTPUT.PUT_LINE(''File found: '' || l_file.NAME || '', MIME Type: '' || l_file.MIME_TYPE);',
+'',
+'    -- Check if the file content is empty',
+'    IF l_file.BLOB_CONTENT IS NULL THEN',
+'        RAISE_APPLICATION_ERROR(-20003, ''The file content is empty for file: '' || l_file.NAME);',
+'    END IF;',
+'',
+'    -- Generate a unique filename',
+'    l_file_name := TO_CHAR(SYSDATE, ''YY'') ',
+'                    || DBMS_RANDOM.STRING(''x'', 8)',
+'                    || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
+'',
+'    -- Set up headers for the request',
+'    apex_web_service.g_request_headers.delete();',
+'    apex_web_service.g_request_headers(1).name := ''Content-Type'';',
+'    apex_web_service.g_request_headers(1).value := l_file.MIME_TYPE;',
+'',
+'    -- Prepare the request URL',
+'    l_request_url := :LOCATION_URI || l_file_name;',
+'',
+'    -- Make the REST request to upload the file',
+'    l_result := APEX_WEB_SERVICE.make_rest_request(',
+'                    p_url                  => l_request_url,',
+'                    p_http_method          => ''PUT'',',
+'                    p_body_blob            => l_file.BLOB_CONTENT,',
+'                    p_credential_static_id => :CREDENTIAL_NAME',
+'                );',
+'',
+'    -- Check the status code of the response',
+'    IF APEX_WEB_SERVICE.g_status_code NOT IN (200, 201, 202, 203, 204, 205, 206, 207, 226) THEN',
+'        SYSTEM_CONTROLS.ERROR_LOGS(',
+'            p_ERROR_TYPE => ''SYSTEM_ERROR'',',
+'            p_PROCESS_NAME => ''OCI_OS.put_object_P9 - App: '' || :APP_ID,',
+'            p_ERROR_CODE => -2,',
+'            p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000),',
+'            p_logger_name => :APP_USER',
+'        );',
+'        RAISE_APPLICATION_ERROR(-20004, ''Error uploading file: '' || SUBSTR(l_result, 1, 4000));',
+'    END IF;',
+'',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_type=>'NEVER'
+,p_internal_uid=>49923007385197026
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(49923191524197027)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Upload Files_1'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'-- DECLARE',
+'--     l_file_names        APEX_T_VARCHAR2;',
+'--     l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
+'--     l_file_name         VARCHAR2(255);',
+'--     l_request_url	    VARCHAR2(32767);',
+'--     l_result	        CLOB;',
+'--     -- l_blob_base64	        CLOB;',
+'--     l_request_filename	VARCHAR2(500);',
+'--     l_inner_folder  	VARCHAR2(500);',
+'-- BEGIN',
+'--     BEGIN',
+'--         SELECT *',
+'--         INTO l_file',
+'--         FROM APEX_APPLICATION_TEMP_FILES',
+'--         WHERE NAME = :P9998_FILE;',
+'--     EXCEPTION',
+'--         WHEN NO_DATA_FOUND THEN',
+'--             RAISE_APPLICATION_ERROR(-20001, ''No file found with the name: '' || :P9998_FILE);',
+'--     END;',
+'',
+'',
+'--     l_file_name := TO_CHAR(get_current_date, ''YY'') ',
+'--                         || DBMS_RANDOM.STRING(''x'', 8)',
+'--                         || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
+'',
+'--     apex_web_service.g_request_headers.delete();',
+'--     apex_web_service.g_request_headers(1).name := ''Content-Type'';',
+'--     apex_web_service.g_request_headers(1).value := l_file.MIME_TYPE; ',
+'',
+'--     l_request_url := :LOCATION_URI || l_file_name;',
+'',
+'--     -- RAISE_APPLICATION_ERROR(-20007, '': '' ||''extention: ''|| SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE) || '' MymTYpe : '' ||  l_file.MIME_TYPE );',
+'',
+'--     -- RAISE_APPLICATION_ERROR(-20007, l_request_url);',
+'--     -- l_result := APEX_WEB_SERVICE.make_rest_request (',
+'--     --                 p_url                  => l_request_url,',
+'--     --                 p_http_method          => ''PUT'',',
+'--     --                 p_body_blob            => l_file.BLOB_CONTENT,',
+'--     --                 p_credential_static_id =>:CREDENTIAL_NAME',
+'--     --                 -- p_credential_static_id => ''OCI_AUTH''',
+'--     --             );',
+'',
+'--     DBMS_CLOUD.put_object (',
+'--         credential_name => :CREDENTIAL_NAME,',
+'--         object_uri      => l_request_url,',
+'--         contents        => l_file.blob_content',
+'--     );',
+'',
+'--     IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
+'--         SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P9 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
+'--         RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
+'--     END IF;',
+'',
+'--     RAISE_APPLICATION_ERROR(-20009, l_request_url);',
+'-- END;',
+'',
+'DECLARE',
+'    l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
+'    l_file_name      VARCHAR2(255);        -- File name',
+'    -- l_file_blob      BLOB;                  -- File content (BLOB)',
+'    -- l_mime_type      VARCHAR2(255);         -- MIME type (e.g., ''application/pdf'')',
+'    l_request_url    VARCHAR2(32767);       -- Request URL (OCI Object Storage URI)',
+'    l_headers        CLOB;                  -- Headers (including Content-Type)',
+'    l_response       CLOB;                  -- Response from OCI',
+'BEGIN',
+'    -- Retrieve the file details from APEX_APPLICATION_TEMP_FILES table',
+'    BEGIN',
+'        SELECT *',
+'        INTO l_file',
+'        FROM APEX_APPLICATION_TEMP_FILES',
+'        WHERE NAME = :P9998_FILE;  -- Assuming :P9998_FILE is the uploaded file name',
+'    EXCEPTION',
+'        WHEN NO_DATA_FOUND THEN',
+'            RAISE_APPLICATION_ERROR(-20001, ''No file found with the name: '' || :P9998_FILE);',
+'    END;',
+'    ',
+'    l_file_name := TO_CHAR(get_current_date, ''YY'') ',
+'                        || DBMS_RANDOM.STRING(''x'', 8)',
+'                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
+'    ',
+'    -- Prepare the Object URI (e.g., ''oci://<bucket_name>@<namespace>/folder1/file1.txt'')',
+'    l_request_url := ''oci://demo@axxyvf3in2t6/'' || l_file_name;',
+'    -- l_request_url := :LOCATION_URI || l_file_name;  -- Modify this to form the correct URI for your storage',
+'',
+'    -- Prepare the HTTP headers (Content-Type)',
+'    -- Create a CLOB to store headers and set the Content-Type header (MIME type)',
+'    l_headers := ''{"Content-Type": "'' || l_file.MIME_TYPE || ''"}'';  -- Format as JSON',
+'',
+'    -- Send the file to OCI Object Storage using DBMS_CLOUD.SEND_REQUEST',
+'    DBMS_CLOUD.SEND_REQUEST(',
+'        credential_name    => :CREDENTIAL_NAME,   -- OCI credential name',
+'        uri                => l_request_url,      -- OCI Object Storage URI',
+'        method             => ''PUT'',              -- HTTP method (PUT for uploading)',
+'        headers            => l_headers,          -- Headers including Content-Type',
+'        body               => l_file.blob_content         -- File content (BLOB)',
+'    );',
+'',
+'',
+'    -- Handle the response (e.g., check status code)',
+'    IF APEX_WEB_SERVICE.g_status_code NOT IN (200, 201, 202, 203, 204, 205, 206, 207, 226) THEN',
+'        RAISE_APPLICATION_ERROR(-20002, ''Error with uploading the file. Status: '' || APEX_WEB_SERVICE.g_status_code);',
+'    END IF;',
+'',
+'        RAISE_APPLICATION_ERROR(-20002, l_request_url);',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_type=>'NEVER'
+,p_internal_uid=>49923191524197027
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(49923230920197028)
+,p_process_sequence=>30
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Upload Files_1_1'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'    l_file_name    VARCHAR2(255);',
+'    l_file_blob    BLOB;',
+'    l_mime_type    VARCHAR2(255);',
+'    l_request_url  VARCHAR2(32767);',
+'    l_headers      CLOB;',
+'    l_response     CLOB;',
+'BEGIN',
+'    -- Retrieve file details',
+'    SELECT name, blob_content, mime_type',
+'    INTO l_file_name, l_file_blob, l_mime_type',
+'    FROM APEX_APPLICATION_TEMP_FILES',
+'    WHERE NAME = :P9998_FILE;',
+'',
+'    -- Prepare URI',
+'    -- l_request_url := ''oci://demo@axxyvf3in2t6/'' || l_file_name;',
+'    -- l_object_uri := ''oci://<your_tenancy>/<your_namespace>/<your_bucket_name>/'' || l_filename; ',
+'',
+'    -- l_request_url := ''https://objectstorage.me-jeddah-1.oraclecloud.com/axxyvf3in2t6/demo/'' || l_file_name;',
+'    l_request_url := ''https://objectstorage.me-jeddah-1.oraclecloud.com/n/axxyvf3in2t6/b/demo/o/25RZJSAD5X.png'';',
+'',
+'',
+'    -- Prepare headers (for example, Content-Type)',
+'    l_headers := ''{"Content-Type": "'' || l_mime_type || ''"}'';',
+'',
+'    -- Call DBMS_CLOUD.SEND_REQUEST to upload the file',
+'     DBMS_CLOUD.SEND_REQUEST(',
+'        credential_name => :CREDENTIAL_NAME,',
+'        uri             => l_request_url,',
+'        method          => ''PUT'',',
+'        headers         => l_headers,',
+'        body            => l_file_blob',
+'    );',
+'',
+'    -- Output the response for debugging',
+'    DBMS_OUTPUT.PUT_LINE(''Response: '' || l_response);',
+'',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>49923230920197028
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(49923320425197029)
+,p_process_sequence=>40
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Upload Files_1_1_1'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'declare',
+'    l_request_url varchar(32000);',
+'    l_file_name varchar(32000);',
+'    l_content_length number;',
+'    l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
+'    l_response clob;',
+'    upload_failed_exception exception;',
+'    l_request_object blob;',
+'    l_request_filename varchar2(500);',
+'BEGIN',
+'',
+'    BEGIN',
+'        SELECT *',
+'        INTO l_file',
+'        FROM APEX_APPLICATION_TEMP_FILES',
+'        WHERE NAME = :P9998_FILE;',
+'    EXCEPTION',
+'        WHEN NO_DATA_FOUND THEN',
+'            -- Provide more details for debugging',
+'            RAISE_APPLICATION_ERROR(-20001, ''No file found with the name: '' || :P9998_FILE);',
+'    END;',
+'',
+'    l_file_name := TO_CHAR(get_current_date, ''YY'') ',
+'                        || DBMS_RANDOM.STRING(''x'', 8)',
+'                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
+'',
+'    l_request_url := :LOCATION_URI || l_file_name;',
+'',
+'    -- Fetch the BLOB content for the file',
+'    SELECT blob_content ',
+'    INTO l_request_object',
+'    FROM apex_application_temp_files',
+'    WHERE name = :P9998_FILE;',
+'',
+'    -- Set the final URI (in this case, specific to your OCI Object Storage)',
+'    l_request_url := ''https://objectstorage.me-jeddah-1.oraclecloud.com/n/axxyvf3in2t6/b/demo/o/'' || l_file_name;',
+'',
+'    -- Send the file using REST',
+'    l_response := apex_web_service.make_rest_request(',
+'        p_url => l_request_url,',
+'        p_http_method => ''PUT'',',
+'        p_body_blob => l_request_object,',
+'        p_credential_static_id => :CREDENTIAL_NAME',
+'    );',
+'',
+'    -- Log the response for debugging',
+'    RAISE_APPLICATION_ERROR(-20009, l_request_url || '' '' || l_response);',
+'',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_type=>'NEVER'
+,p_internal_uid=>49923320425197029
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(49923454846197030)
+,p_process_sequence=>50
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'put_object'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'    l_file_names        APEX_T_VARCHAR2;',
+'    l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
+'    l_file_name         VARCHAR2(255);',
+'    l_request_url	    VARCHAR2(32767);',
+'    l_result	        CLOB;',
+'    -- l_blob_base64	        CLOB;',
+'    l_request_filename	VARCHAR2(500);',
+'    l_inner_folder  	VARCHAR2(500);',
+'BEGIN',
+'    BEGIN',
+'        SELECT *',
+'        INTO l_file',
+'        FROM APEX_APPLICATION_TEMP_FILES',
+'        WHERE NAME = :P9998_FILE;',
+'    EXCEPTION',
+'        WHEN NO_DATA_FOUND THEN',
+'            RAISE_APPLICATION_ERROR(-20001, ''No file found with the name: '' || :P9998_FILE);',
+'    END;',
+'',
+'',
+'    l_file_name := TO_CHAR(get_current_date, ''YY'') ',
+'                        || DBMS_RANDOM.STRING(''x'', 8)',
+'                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
+'',
+'    apex_web_service.g_request_headers.delete();',
+'    apex_web_service.g_request_headers(1).name := ''Content-Type'';',
+'    apex_web_service.g_request_headers(1).value := l_file.MIME_TYPE; ',
+'',
+'    l_request_url := :LOCATION_URI || l_file_name;',
+'',
+'    -- RAISE_APPLICATION_ERROR(-20007, '': '' ||''extention: ''|| SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE) || '' MymTYpe : '' ||  l_file.MIME_TYPE );',
+'',
+'    -- RAISE_APPLICATION_ERROR(-20007, l_request_url);',
+'    -- l_result := APEX_WEB_SERVICE.make_rest_request (',
+'    --                 p_url                  => l_request_url,',
+'    --                 p_http_method          => ''PUT'',',
+'    --                 p_body_blob            => l_file.BLOB_CONTENT,',
+'    --                 p_credential_static_id =>:CREDENTIAL_NAME',
+'    --                 -- p_credential_static_id => ''OCI_AUTH''',
+'    --             );',
+'',
+'    DBMS_CLOUD.put_object (',
+'        credential_name => :CREDENTIAL_NAME,',
+'        object_uri      => l_request_url,',
+'        contents        => l_file.blob_content',
+'    );',
+'',
+'    IF APEX_WEB_SERVICE.g_status_code NOT IN ( 200, 201, 202, 203, 204, 205, 206, 207, 226 ) THEN',
+'        SYSTEM_CONTROLS.ERROR_LOGS(p_ERROR_TYPE => ''SYSTEM_ERROR'',p_PROCESS_NAME => ''OCI_OS.put_object_P9 - App: ''||:APP_ID ,p_ERROR_CODE => -2,p_ERROR_MESSAGE => SUBSTR(l_result, 1, 4000), p_logger_name => :APP_USER);',
+'        RAISE_APPLICATION_ERROR(-20001, ''Error with uploading Data!'');',
+'    END IF;',
+'',
+'    RAISE_APPLICATION_ERROR(-20009, l_request_url);',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_type=>'NEVER'
+,p_internal_uid=>49923454846197030
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(49923587612197031)
+,p_process_sequence=>60
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'New'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'    l_blob         BLOB;',
+'    l_file              APEX_APPLICATION_TEMP_FILES%ROWTYPE;',
+'    l_file_name         VARCHAR2(255);',
+'    -- l_filename     VARCHAR2(255);',
+'    l_mime_type    VARCHAR2(255);',
+'    l_object_uri   VARCHAR2(4000);',
+'    l_response     CLOB;',
+'',
+'BEGIN',
+'        SELECT *',
+'        INTO l_file',
+'        FROM APEX_APPLICATION_TEMP_FILES',
+'        WHERE NAME = :P9998_FILE;',
+'',
+'    -- Determine MIME Type (adjust based on your needs)',
+'    -- l_mime_type := apex_util.get_file_mime_type(l_file.MIME_TYPE); ',
+'',
+'    l_file_name := TO_CHAR(get_current_date, ''YY'') ',
+'                        || DBMS_RANDOM.STRING(''x'', 8)',
+'                        || SYSTEM_CONTROLS.file_extension_by_mimetype(p_mimetype => l_file.MIME_TYPE);',
+'',
+'',
+'    -- Construct object URI',
+'    -- l_object_uri := ''https://objectstorage.us-ashburn-1.oraclecloud.com/<your_namespace>/<your_bucket_name>/'' || l_filename; ',
+'    l_object_uri := :LOCATION_URI || l_file_name;',
+'',
+'    -- Clear existing headers (optional)',
+'    apex_web_service.clear_request_headers; ',
+'',
+'    -- Set the MIME type header',
+'    apex_web_service.g_request_headers(1).name := ''Content-Type'';',
+'    apex_web_service.g_request_headers(1).value := l_file.MIME_TYPE; ',
+'',
+'    -- Make the REST request',
+'    l_response := apex_web_service.make_rest_request(',
+'        p_url            => l_object_uri, ',
+'        p_http_method    => ''PUT'', ',
+'        p_body_blob      => l_file.BLOB_CONTENT, ',
+'        p_credential_static_id => :CREDENTIAL_NAME ',
+'    );',
+'',
+'',
+'',
+'--     -- RAISE_APPLICATION_ERROR(-20007, l_request_url);',
+'--     l_result := APEX_WEB_SERVICE.make_rest_request (',
+'--                     p_url                  => l_request_url,',
+'--                     p_http_method          => ''PUT'',',
+'--                     p_body_blob            => l_file.BLOB_CONTENT,',
+'--                     p_credential_static_id =>:CREDENTIAL_NAME',
+'--                     -- p_credential_static_id => ''OCI_AUTH''',
+'--                 );',
+'    -- Handle response and display messages to the user',
+'    -- ...',
+'',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>49923587612197031
 );
 end;
 /
